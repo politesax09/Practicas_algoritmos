@@ -3,7 +3,7 @@ class MyStr {
 		char * string;
 	public:
 		MyStr();
-		MyStr(char &original)
+		MyStr(const char* original);
 		~MyStr();
 
 };
