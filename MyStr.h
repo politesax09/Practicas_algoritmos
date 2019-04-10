@@ -11,6 +11,9 @@ class MyStr {
 		MyStr();
 		MyStr(const char* original);
 
+		unsigned int getN();
+		void setN(unsigned int nuevaN);
+
 		unsigned int Length();	//Tamano del array
 		unsigned int Capacity();	//Capacidad actual de memoria
 		int Replace(char find, char replaceBy);	//Busca los caracteres find, los sustituye por replaceBy y devuelve el numero de intervenciones
@@ -19,6 +22,15 @@ class MyStr {
 		MyStr Right(unsigned int num);	//Devuelve la subcadena de num caracteres desde el final
 		MyStr Left(unsigned int num);	//Devuelve la subcadena de num caracteres desde el inicio
 		MyStr Substring(unsigned int initialIndex, unsigned int finalIndex);	//Devuelve la subacadena de initialIndex a finalIndex
+
+		int TrimRight(); //Elimina los espacios en blanco que haya por la derecha del texto. Devuelve el número de espacios eliminados. *Atender al decremento de la capacidad*
+		int TrimLeft(); //Elimina los espacios en blanco que haya por la izquierda del texto. Devuelve el número de espacios eliminados. *Atender al decremento de la capacidad*
+		int Trim(); //Elimina los espacios en blanco en ambos lados del texto. Devuelve el número de espacios eliminados. *Atender al decremento de la capacidad*
+		int ToUpper(); //Convierte todos los caracteres en letras mayúsculas. Devuelve el número de caracteres que han sido cambiados a mayúsculas. Se permite usar toupper de C.
+		int ToLower(); //Convierte todos los caracteres en letras minúsculas. Devuelve el número de caracteres que han sido cambiados a minúsculas. Se permite usar tolower de C.
+		bool StartsWith(const Mystr& other); //Devuelve true si la cadena empieza con “other”.
+		bool EndsWith(const Mystr& other); //Devuelve true si la cadena termina con “other”.
+		Mystr Concatenate(const Mystr& other); //Concatena la cadena añadiendo “other” de manera consecutiva. *Atender al incremento de la capacidad de la primera cadena*
 
 		~MyStr();
 
