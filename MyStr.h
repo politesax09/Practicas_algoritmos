@@ -1,6 +1,13 @@
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <cctype>
 
 //Definicion de NULL
 #define NULL nullptr
+
+//Longitud de cadena por defecto
+#define DEF 0
 
 
 class MyStr {
@@ -13,6 +20,8 @@ class MyStr {
 
 		unsigned int getN();
 		void setN(unsigned int nuevaN);
+
+		void actualizarN(int other_len);
 
 		unsigned int Length();	//Tamano del array
 		unsigned int Capacity();	//Capacidad actual de memoria
@@ -28,9 +37,9 @@ class MyStr {
 		int Trim(); //Elimina los espacios en blanco en ambos lados del texto. Devuelve el número de espacios eliminados. *Atender al decremento de la capacidad*
 		int ToUpper(); //Convierte todos los caracteres en letras mayúsculas. Devuelve el número de caracteres que han sido cambiados a mayúsculas. Se permite usar toupper de C.
 		int ToLower(); //Convierte todos los caracteres en letras minúsculas. Devuelve el número de caracteres que han sido cambiados a minúsculas. Se permite usar tolower de C.
-		bool StartsWith(const Mystr& other); //Devuelve true si la cadena empieza con “other”.
-		bool EndsWith(const Mystr& other); //Devuelve true si la cadena termina con “other”.
-		Mystr Concatenate(const Mystr& other); //Concatena la cadena añadiendo “other” de manera consecutiva. *Atender al incremento de la capacidad de la primera cadena*
+		bool StartsWith(const MyStr& other); //Devuelve true si la cadena empieza con “other”.
+		bool EndsWith(const MyStr& other); //Devuelve true si la cadena termina con “other”.
+		MyStr Concatenate(const MyStr& other); //Concatena la cadena añadiendo “other” de manera consecutiva. *Atender al incremento de la capacidad de la primera cadena*
 
 		~MyStr();
 
