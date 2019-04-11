@@ -19,6 +19,10 @@ void MyStr::setN(unsigned int nuevaN){
 	N = nuevaN;
 }
 
+char* MyStr::getString(){
+	return string;
+}
+
 unsigned int MyStr::Length(){
 	return (unsigned int)strlen(string);
 }
@@ -167,7 +171,47 @@ int MyStr::ToUpper(){
 }
 
 int MyStr::ToLower(){
+	int changes = 0, minus = 0;
 
+	for (int i = 0; string[i] >= /**/ && string[i] <= /**/; ++i)
+	{
+		if (string[i] >= /**/ && string[i] <=/**/)
+			minus++;
+		tolower(string[i]);
+	}
+
+	changes = (int)Length() - minus;
+
+	return changes;
+}
+
+bool MyStr::StartsWith(const MyStr &ohter){
+	for (int i = 0; other.string[i] != '\0'; ++i)
+		if (other.string[i] != string[i])
+			return false;
+
+	return true;
+}
+
+bool MyStr::EndsWith(const MyStr &other){
+	for (int i = Length(); i >= other.Length(); --i)
+		if (other.string[i] != string[i])
+			return false;
+
+	return true;
+}
+
+MyStr MyStr::concatenate(const MyStr &other){
+	MyStr salida(string);
+	char temp[200];
+
+	temp = 
+	salida.actualizarN(Length());
+
+	for (int i = Length() + 1, j = 0; string[i] != '\0'; ++i, ++j)	//Comienza en el \0 de la primera cadena
+	{
+		salida.getString()[i] = other.getString[j];
+	}
 }
 
 MyStr::~MyStr(){

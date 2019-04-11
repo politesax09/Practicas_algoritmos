@@ -20,6 +20,7 @@ class MyStr {
 
 		unsigned int getN();
 		void setN(unsigned int nuevaN);
+		char* getString();
 
 		void actualizarN(int other_len);
 
