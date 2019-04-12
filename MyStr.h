@@ -53,4 +53,7 @@ class MyStr {
 		inline bool operator<=(const MyStr& other); //Puede ser el opuesto a >
 		inline bool operator>=(const MyStr& other); //Puede ser el opuesto a <
 
+		inline char& operator [] (int index); //Devuelve el caracter en el elemento “index”
+		inline MyStr operator + (const MyStr & other); //Concatena una cadena a otra.
+
 };

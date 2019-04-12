@@ -207,15 +207,8 @@ bool MyStr::EndsWith(const MyStr &other){
 
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
-	int i,j;
 
-	salida.actualizarN(other.Length());
-
-	for (i = salida.Length() + 1, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en el \0 de la primera cadena
-	{
-		salida.setStringPos(i, other.getString()[j]);
-	}
-	salida.setStringPos(i, '\0');
+	salida = salida + other;
 
 	return salida;
 }
@@ -226,17 +219,21 @@ MyStr MyStr::Introduce(const MyStr &other, unsigned int index) {
 	int i, j;
 	char temp[200];
 
-	salida.actualizarN(other.Length());
+	salida = Substring(0, index) + other;
+	salida = salida + Substring(index + 1, other.Length());
 
-	strcpy(temp, salida.getString());
 
-	for (i = index, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en posicion index de la cadena de saida
-		salida.setStringPos(i, other.getString()[j]);
+	// salida.actualizarN(other.Length());
 
-	for (int j = index; temp[j] != '\0'; ++i, ++j)	//Copia el resto de temp a continuacion de la copia de other.string
-		salida.setStringPos(i, temp[j]);
+	// strcpy(temp, salida.getString());
 
-	salida.setStringPos(i, '\0');
+	// for (i = index, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en posicion index de la cadena de saida
+	// 	salida.setStringPos(i, other.getString()[j]);
+
+	// for (int j = index; temp[j] != '\0'; ++i, ++j)	//Copia el resto de temp a continuacion de la copia de other.string
+	// 	salida.setStringPos(i, temp[j]);
+
+	// salida.setStringPos(i, '\0');
 
 	return salida;
 }
@@ -246,7 +243,7 @@ MyStr::~MyStr(){
 }
 
 
-
+/*OPERADORES*/
 
 inline bool MyStr::operator == (const MyStr &other){
 	if (!Compare(other))
@@ -282,4 +279,22 @@ inline bool MyStr::operator >= (const MyStr &other){
 	if (Compare(other) >= 0)
 		return true;
 	return false;
+}
+
+inline char& operator [] (int index){
+	return string[index];
+}
+
+inline MyStr operator + (const Mystr &other){
+	MyStr salida(string);
+
+	salida.actualizarN(other.Length());
+
+	for (int i = salida.Length() + 1, j = 0; other[j] != '\0'; ++i, ++j)
+	{
+		salida.setStringPos(i, other[j]);
+	}
+	salida.setStringPos(i, '\0');
+
+	return salida;
 }
