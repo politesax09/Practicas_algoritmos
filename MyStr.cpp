@@ -96,10 +96,13 @@ MyStr MyStr::Left(unsigned int num){
 
 MyStr MyStr::Substring(unsigned int initialIndex, unsigned int finalIndex){
 	MyStr salida(string);
-	int pos = 0;
+	int pos = 0, i = 0;
 
-	for (int i = (int)initialIndex; i <= (int)finalIndex; ++i)
-		salida.string[pos] = string[pos];
+	for (i = (int)initialIndex; i <= (int)finalIndex; ++i, pos++)
+		salida.string[i] = string[pos];
+	salida.setStringPos(i, '\0');
+
+	salida.actualizarN(DEF);
 
 	return salida;
 }
