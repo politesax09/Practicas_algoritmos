@@ -23,6 +23,10 @@ char* MyStr::getString(){
 	return string;
 }
 
+void MyStr::setStringPos(int pos, char elemento){
+	string[pos] = elemento;
+}
+
 unsigned int MyStr::Length(){
 	return (unsigned int)strlen(string);
 }
@@ -185,7 +189,7 @@ int MyStr::ToLower(){
 	return changes;
 }
 
-bool MyStr::StartsWith(const MyStr &ohter){
+bool MyStr::StartsWith(const MyStr &other){
 	for (int i = 0; other.string[i] != '\0'; ++i)
 		if (other.string[i] != string[i])
 			return false;
@@ -201,17 +205,19 @@ bool MyStr::EndsWith(const MyStr &other){
 	return true;
 }
 
-MyStr MyStr::concatenate(const MyStr &other){
+MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
-	char temp[200];
+	int i;
 
-	temp = 
-	salida.actualizarN(Length());
+	salida.actualizarN(other.Length());
 
-	for (int i = Length() + 1, j = 0; string[i] != '\0'; ++i, ++j)	//Comienza en el \0 de la primera cadena
+	for (i = salida.Length() + 1, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en el \0 de la primera cadena
 	{
-		salida.getString()[i] = other.getString[j];
+		salida.setStringPos(i, other.getString[j]);
 	}
+	salida.setStringPos(i, '\0');
+
+	return salida;
 }
 
 MyStr::~MyStr(){

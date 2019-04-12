@@ -21,6 +21,7 @@ class MyStr {
 		unsigned int getN();
 		void setN(unsigned int nuevaN);
 		char* getString();
+		void setStringPos(int pos, char elemento);
 
 		void actualizarN(int other_len);
 
