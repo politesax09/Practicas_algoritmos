@@ -19,7 +19,7 @@ void MyStr::setN(unsigned int nuevaN){
 	N = nuevaN;
 }
 
-char* MyStr::getString(){
+char* MyStr::getString() const {
 	return string;
 }
 
@@ -27,7 +27,7 @@ void MyStr::setStringPos(int pos, char elemento){
 	string[pos] = elemento;
 }
 
-unsigned int MyStr::Length(){
+unsigned int MyStr::Length() const {
 	return (unsigned int)strlen(string);
 }
 
@@ -177,9 +177,9 @@ int MyStr::ToUpper(){
 int MyStr::ToLower(){
 	int changes = 0, minus = 0;
 
-	for (int i = 0; string[i] >= /**/ && string[i] <= /**/; ++i)
+	for (int i = 0; string[i] >= 'a' && string[i] <= 'z'; ++i)
 	{
-		if (string[i] >= /**/ && string[i] <=/**/)
+		if (string[i] >= 'a' && string[i] <= 'z')
 			minus++;
 		tolower(string[i]);
 	}
@@ -207,13 +207,13 @@ bool MyStr::EndsWith(const MyStr &other){
 
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
-	int i;
+	int i,j;
 
 	salida.actualizarN(other.Length());
 
 	for (i = salida.Length() + 1, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en el \0 de la primera cadena
 	{
-		salida.setStringPos(i, other.getString[j]);
+		salida.setStringPos(i, other.getString()[j]);
 	}
 	salida.setStringPos(i, '\0');
 

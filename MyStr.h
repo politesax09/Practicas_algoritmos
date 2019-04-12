@@ -20,12 +20,12 @@ class MyStr {
 
 		unsigned int getN();
 		void setN(unsigned int nuevaN);
-		char* getString();
+		char* getString() const;
 		void setStringPos(int pos, char elemento);
 
 		void actualizarN(int other_len);
 
-		unsigned int Length();	//Tamano del array
+		unsigned int Length() const;	//Tamano del array
 		unsigned int Capacity();	//Capacidad actual de memoria
 		int Replace(char find, char replaceBy);	//Busca los caracteres find, los sustituye por replaceBy y devuelve el numero de intervenciones
 		int Compare(MyStr &other);	//Devuelve 0 si son iguales, 1 si es mayor que other y -1 si other es mayor
