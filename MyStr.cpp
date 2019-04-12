@@ -66,7 +66,7 @@ int MyStr::Replace(char find, char replaceBy){
 	return changes;
 }
 
-int MyStr::Compare(MyStr &other){
+int MyStr::Compare(MyStr &other) const{
 	return strcmp(string, other.string);
 }
 
@@ -243,4 +243,13 @@ MyStr MyStr::Introduce(const MyStr &other, unsigned int index) {
 
 MyStr::~MyStr(){
 	free((this->string));
+}
+
+
+
+
+inline bool MyStr::operator==(const MyStr &other){
+	if (!Compare(other))
+		return true;
+	return false;
 }
