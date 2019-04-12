@@ -22,8 +22,9 @@ class MyStr {
 		void setN(unsigned int nuevaN);
 		char* getString() const;
 		void setStringPos(int pos, char elemento);
-
 		void actualizarN(int other_len);
+		void imprimir();
+
 
 		unsigned int Length() const;	//Tamano del array
 		unsigned int Capacity();	//Capacidad actual de memoria
@@ -57,3 +58,4 @@ class MyStr {
 		inline MyStr operator + (const MyStr & other); //Concatena una cadena a otra.
 
 };
+

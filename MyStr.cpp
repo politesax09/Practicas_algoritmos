@@ -51,6 +51,10 @@ void MyStr::actualizarN(int other_len){
 		}
 }
 
+void MyStr::imprimir(){
+	puts(string);
+}
+
 int MyStr::Replace(char find, char replaceBy){
 	int changes = 0;
 
@@ -207,9 +211,10 @@ bool MyStr::EndsWith(const MyStr &other){
 
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
-
+	
+	salida.imprimir();
 	salida = salida + other;
-
+	salida.imprimir();
 	return salida;
 }
 
@@ -277,7 +282,7 @@ inline MyStr MyStr::operator + (const MyStr &other){
 
 	salida.actualizarN(other.Length());
 
-	for (i = salida.Length() + 1, j = 0; other[j] != '\0'; ++i, ++j)
+	for (i = salida.Length(), j = 0; other[j] != '\0'; ++i, ++j)
 		salida.setStringPos(i, other[j]);
 
 	salida.setStringPos(i, '\0');
