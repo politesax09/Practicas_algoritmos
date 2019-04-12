@@ -20,12 +20,12 @@ class MyStr {
 
 		unsigned int getN();
 		void setN(unsigned int nuevaN);
-		char* getString() const;
+		char* getString();
 		void setStringPos(int pos, char elemento);
 
 		void actualizarN(int other_len);
 
-		unsigned int Length() const;	//Tamano del array
+		unsigned int Length();	//Tamano del array
 		unsigned int Capacity();	//Capacidad actual de memoria
 		int Replace(char find, char replaceBy);	//Busca los caracteres find, los sustituye por replaceBy y devuelve el numero de intervenciones
 		int Compare(MyStr &other);	//Devuelve 0 si son iguales, 1 si es mayor que other y -1 si other es mayor
@@ -42,6 +42,8 @@ class MyStr {
 		bool StartsWith(const MyStr& other); //Devuelve true si la cadena empieza con “other”.
 		bool EndsWith(const MyStr& other); //Devuelve true si la cadena termina con “other”.
 		MyStr Concatenate(const MyStr& other); //Concatena la cadena añadiendo “other” de manera consecutiva. *Atender al incremento de la capacidad de la primera cadena*
+		Mystr Introduce(const Mystr& other, unsigned int index); //Concatena la cadena introduciendola entre medias, empezando en la posición indicada por index.
+																	//*Atender al incremento de la capacidad de la primera cadena*
 
 		~MyStr();
 

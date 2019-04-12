@@ -220,6 +220,26 @@ MyStr MyStr::Concatenate(const MyStr &other){
 	return salida;
 }
 
+MyStr MyStr::Introduce(const MyStr &other, unsigned int index){
+	MyStr salida(string);
+	int i, j;
+	char temp[200];
+
+	salida.actualizarN(other.Length());
+
+	strcpy(temp, salida.getString());
+
+	for (i = index, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en posicion index de la cadena de saida
+		salida.setStringPos(i, other.getString[j]);
+	for (int j = index; temp[j] != '\0'; ++i, ++j)	//Copia el resto de temp a continuacion de la copia de other.string
+	{
+		salida.setStringPos(i, temp[j]);
+	}
+	salida.setStringPos(i, '\0');
+
+	return salida;
+}
+
 MyStr::~MyStr(){
 	free((this->string));
 }
