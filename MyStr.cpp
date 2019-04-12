@@ -84,7 +84,7 @@ MyStr MyStr::Left(unsigned int num){
 	MyStr salida(string);
 	int pos = 0;
 
-	for (int pos = 0; pos <= num; pos++)
+	for (int pos = 0; pos <= (int)num; pos++)
 		salida.string[pos] = string[pos];
 	
 	return salida;
@@ -94,7 +94,7 @@ MyStr MyStr::Substring(unsigned int initialIndex, unsigned int finalIndex){
 	MyStr salida(string);
 	int pos = 0;
 
-	for (int i = initialIndex; i <= finalIndex; ++i)
+	for (int i = (int)initialIndex; i <= (int)finalIndex; ++i)
 		salida.string[pos] = string[pos];
 
 	return salida;
@@ -198,7 +198,7 @@ bool MyStr::StartsWith(const MyStr &other){
 }
 
 bool MyStr::EndsWith(const MyStr &other){
-	for (int i = Length(); i >= other.Length(); --i)
+	for (int i = (int)Length(); i >= (int)other.Length(); --i)
 		if (other.string[i] != string[i])
 			return false;
 
@@ -220,7 +220,8 @@ MyStr MyStr::Concatenate(const MyStr &other){
 	return salida;
 }
 
-MyStr MyStr::Introduce(const MyStr &other, unsigned int index){
+MyStr MyStr::Introduce(const MyStr &other, unsigned int index) {
+
 	MyStr salida(string);
 	int i, j;
 	char temp[200];
@@ -230,11 +231,11 @@ MyStr MyStr::Introduce(const MyStr &other, unsigned int index){
 	strcpy(temp, salida.getString());
 
 	for (i = index, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en posicion index de la cadena de saida
-		salida.setStringPos(i, other.getString[j]);
+		salida.setStringPos(i, other.getString()[j]);
+
 	for (int j = index; temp[j] != '\0'; ++i, ++j)	//Copia el resto de temp a continuacion de la copia de other.string
-	{
 		salida.setStringPos(i, temp[j]);
-	}
+
 	salida.setStringPos(i, '\0');
 
 	return salida;
