@@ -66,7 +66,7 @@ int MyStr::Replace(char find, char replaceBy){
 	return changes;
 }
 
-int MyStr::Compare(MyStr &other) const{
+int MyStr::Compare(const MyStr &other) const{
 	return strcmp(string, other.string);
 }
 
@@ -248,8 +248,38 @@ MyStr::~MyStr(){
 
 
 
-inline bool MyStr::operator==(const MyStr &other){
+inline bool MyStr::operator == (const MyStr &other){
 	if (!Compare(other))
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator != (const MyStr &other){
+	if (!(*this == other))
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator < (const MyStr &other){
+	if (Compare(other) < 0)
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator > (const MyStr &other){
+	if (Compare(other) > 0)
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator <= (const MyStr &other){
+	if (Compare(other) <= 0)
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator >= (const MyStr &other){
+	if (Compare(other) >= 0)
 		return true;
 	return false;
 }
