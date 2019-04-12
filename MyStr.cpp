@@ -216,24 +216,9 @@ MyStr MyStr::Concatenate(const MyStr &other){
 MyStr MyStr::Introduce(const MyStr &other, unsigned int index) {
 
 	MyStr salida(string);
-	int i, j;
-	char temp[200];
 
 	salida = Substring(0, index) + other;
 	salida = salida + Substring(index + 1, other.Length());
-
-
-	// salida.actualizarN(other.Length());
-
-	// strcpy(temp, salida.getString());
-
-	// for (i = index, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en posicion index de la cadena de saida
-	// 	salida.setStringPos(i, other.getString()[j]);
-
-	// for (int j = index; temp[j] != '\0'; ++i, ++j)	//Copia el resto de temp a continuacion de la copia de other.string
-	// 	salida.setStringPos(i, temp[j]);
-
-	// salida.setStringPos(i, '\0');
 
 	return salida;
 }
@@ -281,19 +266,20 @@ inline bool MyStr::operator >= (const MyStr &other){
 	return false;
 }
 
-inline char& operator [] (int index){
+inline char& MyStr::operator [] (int index) const{
 	return string[index];
 }
 
-inline MyStr operator + (const Mystr &other){
+inline MyStr MyStr::operator + (const MyStr &other){
 	MyStr salida(string);
+
+	int i,j;
 
 	salida.actualizarN(other.Length());
 
-	for (int i = salida.Length() + 1, j = 0; other[j] != '\0'; ++i, ++j)
-	{
+	for (i = salida.Length() + 1, j = 0; other[j] != '\0'; ++i, ++j)
 		salida.setStringPos(i, other[j]);
-	}
+
 	salida.setStringPos(i, '\0');
 
 	return salida;
