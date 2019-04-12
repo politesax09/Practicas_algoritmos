@@ -51,6 +51,10 @@ void MyStr::actualizarN(int other_len){
 		}
 }
 
+void MyStr::imprimir(){
+	puts(string);
+}
+
 int MyStr::Replace(char find, char replaceBy){
 	int changes = 0;
 
@@ -92,10 +96,13 @@ MyStr MyStr::Left(unsigned int num){
 
 MyStr MyStr::Substring(unsigned int initialIndex, unsigned int finalIndex){
 	MyStr salida(string);
-	int pos = 0;
+	int j, i;
 
-	for (int i = (int)initialIndex; i <= (int)finalIndex; ++i)
-		salida.string[pos] = string[pos];
+	for ( i = (int)initialIndex, j = 0; i <= (int)finalIndex; ++i , j++)
+		salida.string[j] = string[i];
+	salida.setStringPos(i, '\0');
+
+	salida.actualizarN(DEF);
 
 	return salida;
 }
@@ -207,9 +214,8 @@ bool MyStr::EndsWith(const MyStr &other){
 
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
-
+	
 	salida = salida + other;
-
 	return salida;
 }
 
@@ -224,7 +230,7 @@ MyStr MyStr::Introduce(const MyStr &other, unsigned int index) {
 }
 
 MyStr::~MyStr(){
-	free((this->string));
+	//free((this->string));
 }
 
 
@@ -277,7 +283,7 @@ inline MyStr MyStr::operator + (const MyStr &other){
 
 	salida.actualizarN(other.Length());
 
-	for (i = salida.Length() + 1, j = 0; other[j] != '\0'; ++i, ++j)
+	for (i = salida.Length(), j = 0; other[j] != '\0'; ++i, ++j)
 		salida.setStringPos(i, other[j]);
 
 	salida.setStringPos(i, '\0');
