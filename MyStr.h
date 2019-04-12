@@ -46,11 +46,14 @@ class MyStr {
 
 		~MyStr();
 
-
 		inline bool operator==(const MyStr& other); //Usar la función Compare.
 		inline bool operator!=(const MyStr& other); //Puede ser el opuesto a ==
 		inline bool operator< (const MyStr& other); //Usar la función Compare (del siguiente apartado)
 		inline bool operator> (const MyStr& other); //Usar la función Compare (del siguiente apartado)
 		inline bool operator<=(const MyStr& other); //Puede ser el opuesto a >
 		inline bool operator>=(const MyStr& other); //Puede ser el opuesto a <
+
+		inline char& operator [] (int index) const; //Devuelve el caracter en el elemento “index”
+		inline MyStr operator + (const MyStr & other); //Concatena una cadena a otra.
+
 };

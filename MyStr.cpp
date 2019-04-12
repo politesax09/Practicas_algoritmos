@@ -66,7 +66,7 @@ int MyStr::Replace(char find, char replaceBy){
 	return changes;
 }
 
-int MyStr::Compare(const MyStr &other) const {
+int MyStr::Compare(const MyStr &other) const{
 	return strcmp(string, other.string);
 }
 
@@ -207,15 +207,8 @@ bool MyStr::EndsWith(const MyStr &other){
 
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
-	int i,j;
 
-	salida.actualizarN(other.Length());
-
-	for (i = salida.Length() + 1, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en el \0 de la primera cadena
-	{
-		salida.setStringPos(i, other.getString()[j]);
-	}
-	salida.setStringPos(i, '\0');
+	salida = salida + other;
 
 	return salida;
 }
@@ -223,20 +216,9 @@ MyStr MyStr::Concatenate(const MyStr &other){
 MyStr MyStr::Introduce(const MyStr &other, unsigned int index) {
 
 	MyStr salida(string);
-	int i, j;
-	char temp[200];
 
-	salida.actualizarN(other.Length());
-
-	strcpy(temp, salida.getString());
-
-	for (i = index, j = 0; other.getString()[j] != '\0'; ++i, ++j)	//Comienza en posicion index de la cadena de saida
-		salida.setStringPos(i, other.getString()[j]);
-
-	for (int j = index; temp[j] != '\0'; ++i, ++j)	//Copia el resto de temp a continuacion de la copia de other.string
-		salida.setStringPos(i, temp[j]);
-
-	salida.setStringPos(i, '\0');
+	salida = Substring(0, index) + other;
+	salida = salida + Substring(index + 1, other.Length());
 
 	return salida;
 }
@@ -246,9 +228,59 @@ MyStr::~MyStr(){
 }
 
 
-inline bool MyStr::operator==(const MyStr &other) {
+/*OPERADORES*/
+
+inline bool MyStr::operator == (const MyStr &other){
 	if (!Compare(other))
 		return true;
 	return false;
+}
 
+inline bool MyStr::operator != (const MyStr &other){
+	if (!(*this == other))
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator < (const MyStr &other){
+	if (Compare(other) < 0)
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator > (const MyStr &other){
+	if (Compare(other) > 0)
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator <= (const MyStr &other){
+	if (Compare(other) <= 0)
+		return true;
+	return false;
+}
+
+inline bool MyStr::operator >= (const MyStr &other){
+	if (Compare(other) >= 0)
+		return true;
+	return false;
+}
+
+inline char& MyStr::operator [] (int index) const{
+	return string[index];
+}
+
+inline MyStr MyStr::operator + (const MyStr &other){
+	MyStr salida(string);
+
+	int i,j;
+
+	salida.actualizarN(other.Length());
+
+	for (i = salida.Length() + 1, j = 0; other[j] != '\0'; ++i, ++j)
+		salida.setStringPos(i, other[j]);
+
+	salida.setStringPos(i, '\0');
+
+	return salida;
 }
