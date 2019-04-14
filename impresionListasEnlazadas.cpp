@@ -9,7 +9,8 @@ void imprimirListaEnlazada(ListaEnlazada *lista) {
 	int tamanio = lista->getN();
 	
 	// Imprimimos tamaño
-	cout << "n=" << tamanio << "|ListaEnlazada=";
+	// cout << "n=" << tamanio << "|ListaEnlazada=";
+	printf("n=%i|ListaEnlazada=\n", tamanio);
 
 	// Si la lista está vacía, imprimimos algo especial
 	if (tamanio == 0) cout << "vacia";
@@ -20,7 +21,7 @@ void imprimirListaEnlazada(ListaEnlazada *lista) {
 		if (tamanio > 20) cout << "demasiadosElementosParaMostrar";
 		else {
 			for (int i = 0; i < tamanio; i++) {
-				cout << lista->getValor(i);
+				cout << lista->getValor(i).getString();
 				if (i < tamanio - 1) cout << ","; // Imprimimos "," si no estamos al final
 			}
 		}

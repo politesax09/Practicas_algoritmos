@@ -9,6 +9,8 @@
 //Longitud de cadena por defecto
 #define DEF 0
 
+//endl para cout
+#define endl '\n'
 
 class MyStr {
 	private:
@@ -18,7 +20,6 @@ class MyStr {
 		MyStr();
 		MyStr(const char* original);
 
-		unsigned int getN();
 		void setN(unsigned int nuevaN);
 		char* getString() const;
 		void setStringPos(int pos, char elemento);
@@ -46,6 +47,8 @@ class MyStr {
 		MyStr Introduce(const MyStr& other, unsigned int index); //Concatena la cadena introduciendola entre medias, empezando en la posición indicada por index.
 
 		~MyStr();
+
+		inline void operator=(const MyStr &other);	//Evita errores y simplifica al igualar dos objetos
 
 		inline bool operator==(const MyStr& other); //Usar la función Compare.
 		inline bool operator!=(const MyStr& other); //Puede ser el opuesto a ==

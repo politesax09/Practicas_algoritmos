@@ -34,7 +34,7 @@ public:
 	// Precondiciones: posicion en [0, n-1] y n>0
 	// Complejidad temporal: O(n)
 	// Complejidad espacial: O(1)
-	int getValor(int posicion);
+	MyStr getValor(int posicion);
 
 	// Modifica un elemento de la lista
 	// Parámetros:
@@ -43,7 +43,7 @@ public:
 	// Precondiciones: posicion en [0, n-1] y n>0
 	// Complejidad temporal: O(n)
 	// Complejidad espacial: O(1)
-	void setValor(int posicion, int nuevoValor);
+	void setValor(int posicion, MyStr &nuevoValor);
 
 	// Devuelve el tamaño actual de la lista
 	// Complejidad temporal y espacial: O(1)
@@ -57,7 +57,7 @@ public:
 	// Precondiciones: posicion en [0, n]
 	// Complejidad temporal: O(n)
 	// Complejidad espacial: O(1)
-	void insertar (int posicion, int nuevoValor);
+	void insertar (int posicion, MyStr &nuevoValor);
 
 	// Elimina un elemento en una posición dada.
 	// Los elementos que había desde posicion+1 hasta el final de la lista se desplazarán una posición a la izquierda

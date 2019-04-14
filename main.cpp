@@ -1,15 +1,21 @@
 #include <iostream>
-#include "MyStr.h"
+#include "impresionListasEnlazadas.h"
+
+// using namespace std;
 
 int main(){
-	MyStr cad1 = "Kha\'zix", cad2 = "son las", cad3 = "Thresh";
-	MyStr cadena(cad2.getString()), temp1 = "ola q Ashe", temp2 = "Ketchup"
+	/*PRUEBAS SIMPLES*/
+	MyStr cad1 = "Kha\'zix", cad2 = "son las", cad3 = "Thresh", resultado;
+	MyStr cadena(cad2.getString()), temp1 = "ola q Ashe", temp2 = "Ketchup";
 	int resul_comp;
 
 	cadena.imprimir();
-	
-	cadena.Concatenate(temp1);
+	// resultado.imprimir();	//violacion de segmento (creo q porq string apunta a NULL)
+	// resultado.actualizarN(cadena.Length() + temp1.Length());
+
+	cadena = cadena.Concatenate(temp1);
 	cadena.imprimir();
+//===============================================================================================
 
 	cadena = cadena.Substring(11, cadena.Length() + 1);
 	cadena.imprimir();
@@ -33,10 +39,19 @@ int main(){
 
 	resul_comp = cad1.Compare(cadena);
 	if (resul_comp == 0)
-		cout << "Cadenas iguales." << endl;
+		printf("Cadenas iguales.\n");
 	else if (resul_comp < 0)
-		cout << "Segunda cadena mayor que la Primera: " << cad1 << ">" << cadena << endl;
-	else cout << "Primera cadena mayor que la Segunda: " << cadena << ">" << cad1 << endl;
+		printf("Segunda cadena mayor que la Primera: %s > %s\n", cad1, cadena);
+	else printf("Primera cadena mayor que la Segunda: %s > %s\n", cadena, cad1);
+
+	/*PRUEBAS LISTA DOBLEMENTE ENLAZADA*/
+	ListaEnlazada l1;
+
+	// l1.insertar(0, "  DOWN  DOWN  END_ ");
+	// l1.insertar(1, " RULETA    MOLA  MAZO EHHH  ");
+	// l1.insertar(2, " NOOO  CONFUNDAS  ESTATAREA");
+	// l1.insertar(3, " PEPE  PAPAPIPIPOPO PUPU");
+	// l1.insertar(4, "       UP__  UP__ UP__")
 
 	return 0;
 }

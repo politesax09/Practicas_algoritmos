@@ -21,7 +21,7 @@ ListaEnlazada::ListaEnlazada() {
 	n = 0;
 }
 
-int ListaEnlazada::getValor(int posicion) {
+MyStr ListaEnlazada::getValor(int posicion) {
 	assert(n > 0);
 	assert(posicion >= 0 && posicion <= n - 1);
 	// Obtenemos el nodo que contiene el elemento
@@ -29,7 +29,7 @@ int ListaEnlazada::getValor(int posicion) {
 	return (nodoQueContieneResultado->elemento);
 }
 
-void ListaEnlazada::setValor(int posicion, int nuevoValor) {
+void ListaEnlazada::setValor(int posicion, MyStr &nuevoValor) {
 	assert(n > 0);
 	assert(posicion >= 0 && posicion <= n - 1);
 	getNodo(posicion)->elemento = nuevoValor;
@@ -39,7 +39,7 @@ int ListaEnlazada::getN() {
 	return (n);
 }
 
-void ListaEnlazada::insertar(int posicion, int nuevoValor) {
+void ListaEnlazada::insertar(int posicion, MyStr &nuevoValor) {
 	assert(posicion >= 0 && posicion <= n);
 
 	// Creamos el nuevo nodo con el nuevo valor

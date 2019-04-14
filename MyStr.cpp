@@ -11,10 +11,6 @@ MyStr::MyStr(const char* original){
 	strcpy((this->string),original);//copiar el string
 }
 
-unsigned int MyStr::getN(){
-	return N;
-}
-
 void MyStr::setN(unsigned int nuevaN){
 	N = nuevaN;
 }
@@ -35,7 +31,7 @@ unsigned int MyStr::Capacity(){
 	return N;
 }
 
-void MyStr::actualizarN(int other_len){
+void MyStr::actualizarN(int other_len){//FUNCIONA
 	if (other_len == 0)		//Si no hay segunda cadena other_len = 0, la capacidad se reduce o se mantiene
 		while (Length() + 1 <= N / 4)		//Comprueba si hay que reducir la capacidad en funcion de la longitud de la cadena
 		{
@@ -43,7 +39,7 @@ void MyStr::actualizarN(int other_len){
 			string = (char*)realloc(string, N);
 		}
 
-	else		//Cuando hay segunda cadena, o la capacidad se queda igual o se incrementa
+	else		//Cuando hay segunda cadena, la capacidad se queda igual o se incrementa
 		while ((Length() + 1) + (other_len + 1) >= N)		//Comprueba si hay que aumentar la capacidad en funcion de la logitud de la cadena
 		{
 			N = N * 2;
@@ -215,9 +211,9 @@ bool MyStr::EndsWith(const MyStr &other){
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
 	
-	salida.imprimir();
+	// salida.imprimir();
 	salida = salida + other;
-	salida.imprimir();
+	// salida.imprimir();
 	return salida;
 }
 
@@ -237,6 +233,13 @@ MyStr::~MyStr(){
 
 
 /*OPERADORES*/
+
+inline void MyStr::operator = (const MyStr &other){
+	strcpy(string, other.getString());
+	N = other.Capacity();
+}
+
+
 
 inline bool MyStr::operator == (const MyStr &other){
 	if (!Compare(other))
@@ -278,16 +281,14 @@ inline char& MyStr::operator [] (int index) const{
 	return string[index];
 }
 
-inline MyStr MyStr::operator + (const MyStr &other){
+//Une dos cadenas. Utilizado por Concatenate()
+inline MyStr MyStr::operator + (const MyStr &other){//FUNCIONA
 	MyStr salida(string);
-
 	int i,j;
 
 	salida.actualizarN(other.Length());
-
 	for (i = salida.Length(), j = 0; other[j] != '\0'; ++i, ++j)
 		salida.setStringPos(i, other[j]);
-
 	salida.setStringPos(i, '\0');
 
 	return salida;
