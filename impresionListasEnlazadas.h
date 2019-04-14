@@ -1,4 +1,8 @@
-#pragma once
+// #pragma once
+
+// #ifndef IMPRESIONLISTASENLAZADAS_H
+// #define IMPRESIONLISTASENLAZADAS_H
+
 #include "ListaEnlazada.h"
 
 // Imprime una lista enlazada por pantalla (su "n" y sus elementos), con un maximo de 20 elementos
@@ -9,3 +13,4 @@
 // Complejidad espacial: O(1)
 void imprimirListaEnlazada(ListaEnlazada *lista);
 
+// #endif

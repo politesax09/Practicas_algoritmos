@@ -1,3 +1,7 @@
+
+// #ifndef MYSTR_H
+// #define MYSTR_H
+
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
@@ -20,16 +24,29 @@ class MyStr {
 		MyStr();
 		MyStr(const char* original);
 
-		void setN(unsigned int nuevaN);
-		char* getString() const;
-		void setString(char *other_string);
-		void setStringPos(int pos, char elemento);
+		//Actualiza la capacidad gestionando la memoria necesaria
+		//Parametros:	other_len (longitud de la cadena a introducir o concatenar, si no hay es DEF(0))
 		void actualizarN(int other_len);
+
+		//Devuelve la cadena
+		char* getString() const;
+
+		//Modifica la cadena con la introducida por parametro
+		void setString(char *other_string);
+
+		//Modifica un elemento de la cadena
+		//Parametros:	pos (posicion a modificar), elemento (nuevo elemento)
+		void setStringPos(int pos, char elemento);
+
+		//Borra los 4 primeros caracteres de la cadena
+		void borrar4();
+
+		//Imprimer la cadena por pantalla
 		void imprimir();
 
 
 		unsigned int Length() const;	//Tamano del array
-		unsigned int Capacity();	//Capacidad actual de memoria
+		unsigned int Capacity()const;	//Capacidad actual de memoria
 		int Replace(char find, char replaceBy);	//Busca los caracteres find, los sustituye por replaceBy y devuelve el numero de intervenciones
 		int Compare(const MyStr &other) const;	//Devuelve 0 si son iguales, 1 si es mayor que other y -1 si other es mayor
 		int Remove(char find);	//Borra los caracteres iguales a find y devuelve el numero de los borrados
@@ -63,3 +80,4 @@ class MyStr {
 
 };
 
+// #endif

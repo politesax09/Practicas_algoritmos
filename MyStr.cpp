@@ -5,14 +5,28 @@ MyStr::MyStr(){
 	this->string = NULL;
 	N = -1;
 }
+
 MyStr::MyStr(const char* original){
 	N = (unsigned int)((strlen(original) + 1) * 2);	//Capacidad para el doble de la longitud de la cadena
 	(this->string) = (char * ) malloc(N); // alocar la memoria necesaria
 	strcpy((this->string),original);//copiar el string
 }
 
-void MyStr::setN(unsigned int nuevaN){
-	N = nuevaN;
+/*METODOS AUXILIARES*/
+void MyStr::actualizarN(int other_len){
+	if (other_len == 0)		//Si no hay segunda cadena other_len = 0, la capacidad se reduce o se mantiene
+		while (Length() + 1 <= N / 4)		//Comprueba si hay que reducir la capacidad en funcion de la longitud de la cadena
+		{
+			N = N / 2;
+			string = (char*)realloc(string, N);
+		}
+
+	else		//Cuando hay segunda cadena, la capacidad se queda igual o se incrementa
+		while ((Length() + 1) + (other_len + 1) >= N)		//Comprueba si hay que aumentar la capacidad en funcion de la logitud de la cadena
+		{
+			N = N * 2;
+			string = (char*)realloc(string, N);
+		}
 }
 
 char* MyStr::getString() const {
@@ -29,32 +43,27 @@ void MyStr::setStringPos(int pos, char elemento){
 	string[pos] = elemento;
 }
 
-unsigned int MyStr::Length() const {
-	return (unsigned int)strlen(string);
-}
-
-unsigned int MyStr::Capacity(){
-	return N;
-}
-
-void MyStr::actualizarN(int other_len){//FUNCIONA
-	if (other_len == 0)		//Si no hay segunda cadena other_len = 0, la capacidad se reduce o se mantiene
-		while (Length() + 1 <= N / 4)		//Comprueba si hay que reducir la capacidad en funcion de la longitud de la cadena
-		{
-			N = N / 2;
-			string = (char*)realloc(string, N);
-		}
-
-	else		//Cuando hay segunda cadena, la capacidad se queda igual o se incrementa
-		while ((Length() + 1) + (other_len + 1) >= N)		//Comprueba si hay que aumentar la capacidad en funcion de la logitud de la cadena
-		{
-			N = N * 2;
-			string = (char*)realloc(string, N);
-		}
+void MyStr::borrar4(){
+	int i;
+	for (i = 3; string[i] != '\0'; ++i)
+		string[i - 3] = string[i];
+	string[i - 3] = '\0';
+	actualizarN(DEF);
 }
 
 void MyStr::imprimir(){
 	puts(string);
+}
+
+/*===============================================================================================================================*/
+
+/*METODOS PROPUESTOS*/
+unsigned int MyStr::Length() const {
+	return (unsigned int)strlen(string);
+}
+
+unsigned int MyStr::Capacity()const{
+	return N;
 }
 
 int MyStr::Replace(char find, char replaceBy){
@@ -116,7 +125,7 @@ int MyStr::Remove(char find){
 	{
 		if (find == string[i])
 		{
-			for (unsigned int j = i; j < Length(); j++)	//length en vez de '\0' para poder moverlo tambien
+			for (unsigned int j = i; j < Length(); j++)	//Condicion en funcion de length en vez de '\0' para poderlo mover tambien
 			{
 				string[j] = string[j + 1];
 			}
@@ -128,11 +137,11 @@ int MyStr::Remove(char find){
 }
 
 int MyStr::TrimRight(){
-	int i = 0, changes = 0;
+	int i = 0, changes = 0;		//changes es igual al numero de espacios
 
 	for (; string[i] != ' '; i++)
 
-	changes = Length() - i;		//changes es igual al numero de espacios
+	changes = Length() - i;
 	
 	string[i] = '\0';	//Mueve el \0 para recortar los espacios
 
@@ -142,12 +151,12 @@ int MyStr::TrimRight(){
 }
 
 int MyStr::TrimLeft(){
-	int i = 0, j = 0, changes = 0;
+	int i = 0, j = 0, changes = 0;	//changes es el numero de espacios borrados
 	MyStr salida(string);
 
 	for (; string[i] == ' '; i++)	//Localiza donde deja de haber espacios
 
-	changes = i;		//changes es el numero de espacios
+	changes = i;
 
 	for (; string[i] != '\0'; i++, j++)
 		string[j] = string[i];
@@ -217,9 +226,8 @@ bool MyStr::EndsWith(const MyStr &other){
 MyStr MyStr::Concatenate(const MyStr &other){
 	MyStr salida(string);
 	
-	// salida.imprimir();
 	salida = salida + other;
-	// salida.imprimir();
+
 	return salida;
 }
 
@@ -237,16 +245,15 @@ MyStr::~MyStr(){
 	free((this->string));
 }
 
+/*===========================================================================================================================================================*/
 
-/*OPERADORES*/
-
+/*OPERADOR AUXILIAR*/
 inline void MyStr::operator = (const MyStr &other){
 	strcpy(string, other.getString());
 	N = other.Capacity();
 }
 
-
-
+/*OPERADORES PROPUESTOS*/
 inline bool MyStr::operator == (const MyStr &other){
 	if (!Compare(other))
 		return true;
@@ -287,8 +294,7 @@ inline char& MyStr::operator [] (int index) const{
 	return string[index];
 }
 
-//Une dos cadenas. Utilizado por Concatenate()
-inline MyStr MyStr::operator + (const MyStr &other){//FUNCIONA
+inline MyStr MyStr::operator + (const MyStr &other){
 	MyStr salida(string);
 	int i,j;
 

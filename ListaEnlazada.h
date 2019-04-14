@@ -1,4 +1,4 @@
-#pragma once
+// #pragma once
 #include "Nodo.h"
 
 // Clase que representa a una lista enlazada simple. No tiene restricción de tamaño
