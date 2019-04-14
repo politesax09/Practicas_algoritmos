@@ -22,6 +22,7 @@ class MyStr {
 
 		void setN(unsigned int nuevaN);
 		char* getString() const;
+		void setString(char *other_string);
 		void setStringPos(int pos, char elemento);
 		void actualizarN(int other_len);
 		void imprimir();

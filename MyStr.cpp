@@ -19,6 +19,12 @@ char* MyStr::getString() const {
 	return string;
 }
 
+void MyStr::setString(char *other_string){
+	string = (char*)realloc(string, 1);	//Borra la string antigua
+
+	actualizarN(strlen(other_string));
+}
+
 void MyStr::setStringPos(int pos, char elemento){
 	string[pos] = elemento;
 }

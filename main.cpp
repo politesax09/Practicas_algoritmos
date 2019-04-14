@@ -3,7 +3,7 @@
 
 // using namespace std;
 
-int main(){
+void pruebas_simple(){
 	/*PRUEBAS SIMPLES*/
 	MyStr cad1 = "Kha\'zix", cad2 = "son las", cad3 = "Thresh", resultado;
 	MyStr cadena(cad2.getString()), temp1 = "ola q Ashe", temp2 = "Ketchup";
@@ -43,15 +43,28 @@ int main(){
 	else if (resul_comp < 0)
 		printf("Segunda cadena mayor que la Primera: %s > %s\n", cad1, cadena);
 	else printf("Primera cadena mayor que la Segunda: %s > %s\n", cadena, cad1);
+}
 
-	/*PRUEBAS LISTA DOBLEMENTE ENLAZADA*/
+void pruebas_enlazada(){
 	ListaEnlazada l1;
+	MyStr cad1 = "  DOWN  DOWN  END_ ", cad2 = " RULETA    MOLA  MAZO EHHH  ", cad3 = " NOOO  CONFUNDAS  ESTATAREA", cad4 = " PEPE  PAPAPIPIPOPO PUPU", cad5 = "       UP__  UP__ UP__";
+	imprimirListaEnlazada(&l1);
+	l1.insertar(0, cad1);
+	l1.insertar(1, cad2);
+	l1.insertar(2, cad3);
+	l1.insertar(3, cad4);
+	l1.insertar(4, cad5);
+	imprimirListaEnlazada(&l1);
 
-	// l1.insertar(0, "  DOWN  DOWN  END_ ");
-	// l1.insertar(1, " RULETA    MOLA  MAZO EHHH  ");
-	// l1.insertar(2, " NOOO  CONFUNDAS  ESTATAREA");
-	// l1.insertar(3, " PEPE  PAPAPIPIPOPO PUPU");
-	// l1.insertar(4, "       UP__  UP__ UP__")
+	l1.getValor(0).Trim();
+	l1.getValor(0).imprimir();
+}
+
+
+int main(){
+	// pruebas_simple();
+
+	pruebas_enlazada();
 
 	return 0;
 }

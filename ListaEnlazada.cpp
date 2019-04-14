@@ -39,7 +39,7 @@ int ListaEnlazada::getN() {
 	return (n);
 }
 
-void ListaEnlazada::insertar(int posicion, MyStr &nuevoValor) {
+void ListaEnlazada::insertar(int posicion, MyStr &nuevoValor /*char *cadena*/) {
 	assert(posicion >= 0 && posicion <= n);
 
 	// Creamos el nuevo nodo con el nuevo valor
