@@ -8,7 +8,7 @@ class Orden
 public:
 	Orden();
 	
-	bool esOrdenada(ListaContigua &lista, int direccion);
+	bool esOrdenada(ListaContigua *lista, int direccion);
 
 	//Metodos de ordenacion
 	void insercion(ListaContigua &lista, int direccion);
