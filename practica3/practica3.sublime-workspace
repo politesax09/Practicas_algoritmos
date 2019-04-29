@@ -1,0 +1,667 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"impr",
+				"imprimirListaEnlazada"
+			],
+			[
+				"imp",
+				"imprimirListaEnlazada"
+			],
+			[
+				"prue",
+				"pruebas_enlazada"
+			],
+			[
+				"other",
+				"other_string"
+			],
+			[
+				"capa",
+				"Capacity"
+			],
+			[
+				"ohter",
+				"other"
+			],
+			[
+				"oh",
+				"other"
+			],
+			[
+				"leng",
+				"Length"
+			],
+			[
+				"def",
+				"DEF"
+			],
+			[
+				"stdli",
+				"cstdlib\tstandard header"
+			],
+			[
+				"inc",
+				"inc\t#include \"…\""
+			],
+			[
+				"sigu",
+				"siguienteNodo"
+			],
+			[
+				"punt",
+				"punteroUltimoNodoAccedido"
+			],
+			[
+				"posi",
+				"posicionUltimoNodoAccedido"
+			],
+			[
+				"null",
+				"NULL"
+			],
+			[
+				"de",
+				"def\t#ifndef … #define … #endif"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ListaContigua.cpp",
+			"settings":
+			{
+				"buffer_size": 3526,
+				"encoding": "Western (Windows 1252)",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ListaContigua.h",
+			"settings":
+			{
+				"buffer_size": 4192,
+				"encoding": "Western (Windows 1252)",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"disabl",
+				"Package Control: Disable Package"
+			],
+			[
+				"disalb",
+				"Package Control: Disable Package"
+			],
+			[
+				"enalb",
+				"Package Control: Enable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"packa",
+				"Package Control: Disable Package"
+			],
+			[
+				"sublime",
+				"Preferences: SublimeGDB Settings – Default"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"debug",
+				"GoDebug: Disable"
+			],
+			[
+				"build",
+				"Build: Cancel"
+			],
+			[
+				"xde",
+				"Xdebug: Set Watch Expression"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"debu",
+				"GoDebug: Open Watches View"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Set Syntax: C"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 256.0,
+		"history":
+		[
+			"q",
+			"package",
+			"hello",
+			"main.cpp",
+			"main.c",
+			"./main.cpp",
+			"gcc",
+			"help",
+			"gcc"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica3"
+	],
+	"file_history":
+	[
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/ListaContigua.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/ListaContigua.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/ListaContiguaOrdenada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/ListaContiguaOrdenada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/impresionListasContiguas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/impresionListasContiguas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/Actividad 5.4.pdf",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.2/Actividad 4.2 (solucion)/ListaContigua.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.2/Actividad 4.2 (solucion)/impresionListasContiguas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.2/Actividad 4.2 (solucion)/impresionListasContiguas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.2/Actividad 4.2 (solucion)/ListaContigua.h",
+		"/opt/lampp/htdocs/hello_world.php",
+		"/home/adrian/Documents/CLASE/algoritmos/tema5/act5.4/act5.4.sublime-project",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Actividad 4.3/actividad4.3.sublime-project",
+		"/build/glibc-OTsEL5/glibc-2.27/sysdeps/unix/sysv/linux/raise.c",
+		"/home/adrian/.config/sublime-text-3/Packages/SublimeGDB/Default.sublime-keymap",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/MyStr.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/MyStr.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/main.cpp",
+		"/build/glibc-OTsEL5/glibc-2.27/sysdeps/x86_64/multiarch/strlen-avx2.S",
+		"/build/glibc-OTsEL5/glibc-2.27/csu/libc-start.c",
+		"/build/glibc-OTsEL5/glibc-2.27/malloc/malloc.c",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/practica2.sublime-project",
+		"/home/adrian/.config/sublime-text-3/Packages/SublimeGDB/SublimeGDB.sublime-settings",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/Func.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/Func.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/Func.c",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/mystr.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/mystr.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/Pila.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/Pila.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/Convertir.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/Convertir.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.7/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/Pila.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/Pila.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.5/Actividad 4.5 (solucion)/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.4/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.4/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.4/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.4/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.4/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.4/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act_extra/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act_extra/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act_extra/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act_extra/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act_extra/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act_extra/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/Practicas/practica2/mystr.c",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/practicas/practica2/string.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.6/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.6/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.6/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.6/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.6/impresionListasEnlazadas.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.6/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Solucion/Actividad 4.3 (solucion)/Nodo.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Solucion/Actividad 4.3 (solucion)/main.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Solucion/Actividad 4.3 (solucion)/impresionListasEnlazadas.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Solucion/Actividad 4.3 (solucion)/ListaEnlazada.h",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Solucion/Actividad 4.3 (solucion)/ListaEnlazada.cpp",
+		"/home/adrian/Documents/CLASE/algoritmos/tema4/act4.3/Solucion/Actividad 4.3 (solucion)/impresionListasEnlazadas.cpp",
+		"/home/adrian/.scripts/compilarC++.c",
+		"/home/adrian/Documents/Programas/prueba_compilar/prueba.cpp",
+		"/home/adrian/Documents/Programas/prueba_compilar/prueba.h",
+		"/home/adrian/Documents/Programas/prueba_compilar/pruebaC++.sublime-project",
+		"/bin/bash",
+		"/home/adrian/Documents/Programas/SuperPrograma.c",
+		"/home/adrian/.config/sublime-text-3/Packages/User/G++-7.sublime-build",
+		"/home/adrian/.config/sublime-text-3/Packages/User/Gcc-7.sublime-build",
+		"/home/adrian/Documents/Programas/pruebaSublime.c",
+		"/home/adrian/.config/sublime-text-3/Packages/User/GoDebug.sublime-settings"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"10",
+			"9",
+			"8",
+			"7",
+			"6",
+			"5",
+			"8",
+			"7",
+			"77",
+			"7",
+			"capacity",
+			"funciona",
+			"FUNCIONA",
+			"printf",
+			"actualizar",
+			"rig",
+			"borrar",
+			"setn",
+			"actual",
+			"Compare",
+			"compare",
+			"subs",
+			"trim",
+			"setstrin",
+			"inser",
+			"getN",
+			"getn",
+			"actua",
+			"conca",
+			"actua",
+			"Actual",
+			"actua",
+			"actual",
+			"length",
+			"concat",
+			"compar",
+			"}",
+			"setStri",
+			"actual",
+			"leng",
+			"actuali",
+			"str2"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": true,
+		"regex": false,
+		"replace_history":
+		[
+			"other"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ListaContigua.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3526,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "ListaContigua.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 121.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/G++.sublime-build",
+	"project": "practica3.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"17":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"18":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"19":
+				{
+					"group": 0,
+					"index": 2
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 134.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
