@@ -29,6 +29,7 @@ public:
 	// Constructor. Crea una ListaContigua de tamaño 0
 	// Complejidad temporal y espacial: O(1)
 	ListaContigua();
+	ListaContigua(ListaContigua &old);
 
 	// Devuelve un elemento de la ListaContigua
 	// Parámetro: la posición del elemento
@@ -49,14 +50,14 @@ public:
 	// Devuelve el tamaño actual de la ListaContigua
 	// Retorno: número actual de elementos de la ListaContigua
 	// Complejidad temporal y espacial: O(1)
-	int getN(); 
+	int getN();
 
 	// Devuelve la capacidad actual de la ListaContigua
 	// Retorno: número máximo que actualmente podría contener la ListaContigua
 	// Complejidad temporal y espacial: O(1)
-	int getCapacidad(); 
+	int getCapacidad();
 
-	// Inserta un nuevo elemento en la última posición de la ListaContigua, 
+	// Inserta un nuevo elemento en la última posición de la ListaContigua,
 	// ampliando previamente la capacidad si es necesario
 	// Parámetros:
 	// - nuevoValor: el nuevo elemento que queremos poner
