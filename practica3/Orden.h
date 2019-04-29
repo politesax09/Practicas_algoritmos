@@ -1,7 +1,7 @@
 #include "ListaContigua.h"
 
-#define ASC0	// de menor a mayor
-#define DESC1	// de mayor a menor
+#define ASC 0	// de menor a mayor
+#define DESC 1	// de mayor a menor
 
 class Orden
 {
