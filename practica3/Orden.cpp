@@ -65,3 +65,30 @@ void Orden::seleccion(ListaContigua *lista, int direccion){
 
 	}
 }
+
+void Orden::burbuja(ListaContigua *lista, int direccion){
+	int i, j, temp = 0;
+
+	for (int i = 2; i <= lista.getN(); ++i)
+	{
+		for (int j = 0; j < lista.getN() - i; ++j)
+		{
+			if (lista.getValor(j) > lista.getValor(j + 1))
+			{
+				temp = lista.getValor(j);
+				lista.getValor(j) = lista.getValor(j + 1);
+				lista.getValor(j + 1) = temp;
+			}
+		}
+	}
+}
+
+ListaContigua Orden::QSort(ListaContigua *lista, int ini, int fin){
+	
+}
+
+void Orden::QuickSort(ListaContigua *lista, int direccion){
+	ListaContigua ordenada;
+
+	ordenada = QuickSort(&lista, 0, lista->getN());
+}
