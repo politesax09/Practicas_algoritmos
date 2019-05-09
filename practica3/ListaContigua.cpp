@@ -14,13 +14,15 @@ ListaContigua::ListaContigua() {
 	capacidad=0;
 }
 
-ListaContigua::ListaContigua(ListaContigua &old){
-    int i;
-    this->capacidad = old.getCapacidad();
-    this->vector = (int *) malloc(sizeof(int) * (old.getCapacidad()) );
-    for(i = 0; i < old.getCapacidad() ; i++ )
-        this->vector[i] = old.getValor(i);
-    this->n = old.getN();
+ListaContigua::ListaContigua(ListaContigua &lista){
+	//Reservar memoria para la capacidad de la lista
+	vector = (int*)malloc(lista.getCapacidad() * sizeof(int));
+	//Copiar los elementos
+	for (int i = 0; i < lista.getN(); ++i)
+		vector[i] = lista.getValor(i);
+	//Actualizar "n" y "capacidad" de la nueva lista
+	n = lista.getN();
+	capacidad = lista.getCapacidad();
 }
 
 int ListaContigua::getValor(int posicion) {
@@ -84,15 +86,15 @@ void ListaContigua::eliminar(int posicion) {
 
 void ListaContigua::concatenar(ListaContigua *listaAConcatenar) {
 	assert(listaAConcatenar != NULL);
-
+	
 	// Tamaño de la lista a concatenar. Por convención, cuando tenemos
 	// dos listas, el tamaño de una es "n" y el de la otra es "m"
-	int m = listaAConcatenar->getN();
-
+	int m = listaAConcatenar->getN(); 
+	
 	// Primero vamos a ampliar la capacidad para asegurarnos de que los
-	// nuevos elementos quepan. Para curarnos en salud, ampliamos la
+	// nuevos elementos quepan. Para curarnos en salud, ampliamos la 
 	// capacidad en el tamaño de la listaAConcatenar
-	// Complejidad temporal O(n)
+	// Complejidad temporal O(n) 
 	// Complejidad espacial O(m+n)
 	vector = (int*)realloc(vector, sizeof(int)*(capacidad + m));
 	capacidad += m;

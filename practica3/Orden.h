@@ -10,15 +10,17 @@ public:
 
 	bool esOrdenada(ListaContigua *lista, int direccion);
 
-	ListaContigua QSort(ListaContigua *lista, int ini, int fin);
+	ListaContigua QSort(ListaContigua &lista, int ini, int fin);
+	ListaContigua merge(ListaContigua &lista, int l_ini, int l_fin, int r_ini, int r_fin);
+	ListaContigua dividir(ListaContigua &lista, int ini, int fin);
 
 	//Metodos de ordenacion
-	void insercion(ListaContigua *lista, int direccion);
-	void seleccion(ListaContigua *lista, int direccion);
-	void burbuja(ListaContigua *lista, int direccion);
+	void Insercion(ListaContigua *lista, int direccion);
+	void Seleccion(ListaContigua *lista, int direccion);
+	void Burbuja(ListaContigua *lista, int direccion);
 	void QuickSort(ListaContigua *lista, int direccion);
-	void MSort(ListaContigua *lista, int direccion);
-	void rango(ListaContigua *lista, int direccion);
+	void MergeSort(ListaContigua *lista, int direccion);
+	void Rango(ListaContigua *lista, int direccion);
 
 	~Orden();
 	
