@@ -1,6 +1,11 @@
 #include "Orden.h"
 #include "cstdlib"
 
+#define RANGO 200
+#include <iostream>
+
+using namespace std;
+Orden::Orden(){}
 bool Orden::esOrdenada(ListaContigua *lista, int direccion){
 	int i = 0;
 
@@ -86,6 +91,7 @@ void Orden::Burbuja(ListaContigua *lista, int direccion){
 
 ListaContigua Orden::QSort(ListaContigua *lista, int ini, int fin){
 	int med = 0, pivote = 0, temp = 0, igual = 0, i, j;
+
 	ListaContigua copia(*lista);
 
 	//Localizar la mitad de la lista y asignar el pivote
@@ -93,15 +99,15 @@ ListaContigua Orden::QSort(ListaContigua *lista, int ini, int fin){
 	pivote = copia.getValor(med);	//PROVISIONAL
 
 	i = 0;
-	j = copia.getN();
+	j = copia.getN() - 1;
 	while (i < j)
 	{
 		//Recorrer la copia hasta que un elemento este en el lado que no le corresponde
-		for (; copia.getValor(i) < pivote; ++i)
-		for (; copia.getValor(j) > pivote; --j)
-		//"igual" es un contador de elementos iguales que "pivote", se anaden al final
-		for (; copia.getValor(i) == pivote || copia.getValor(i) == pivote; ++i, --j)
-			igual++;
+		for (; copia.getValor(i) < pivote; ++i);
+        for (; copia.getValor(j) > pivote; --j);
+        //"igual" es un contador de elementos iguales que "pivote", se anaden al final
+        for (; copia.getValor(i) == pivote || copia.getValor(i) == pivote; ++i, --j)
+            igual++;
 
 		//Los que no estan en el lado correcto, se intercambian si los indices no se han cruzado
 		if (i < j)
@@ -123,8 +129,12 @@ ListaContigua Orden::QSort(ListaContigua *lista, int ini, int fin){
 }
 
 void Orden::QuickSort(ListaContigua *lista, int direccion){
-    ListaContigua temp(*lista);
-	ListaContigua ordenada(QSort(&temp, 0, temp.getN()));
+    cout << "flag\n";
+    for(int i = 0; i < lista->getN(); i++)
+        cout << lista->getValor(i) << " ";
+    cout << "\nflag2\n";
+	ListaContigua ordenada(QSort(lista,0,lista->getN()));
+
 
 	//Copiar la lista ordenada a la lista pasada por parametro
 	for (int i = 0; i < ordenada.getN(); ++i)
@@ -195,8 +205,39 @@ ListaContigua Orden::dividir(ListaContigua &lista, int ini, int fin){
 }
 
 void Orden::MergeSort(ListaContigua *lista, int direccion){
-	ListaContigua salida(lista);
+	ListaContigua salida(*lista);
 
-	salida = dividir(lista, 0, lista->getN() - 1);
+	salida = dividir(*lista, 0, lista->getN() - 1);
 	//COPIAR SALIDA A LISTA
 }
+
+void Orden::Rango(ListaContigua* lista, int direccion){
+    int i,j,k; // contadores
+    //Generar una lista de rango inicializada a 0
+    ListaContigua temp;
+    for(i = 0; i < RANGO; i++)
+        temp.insertar(i,0);
+
+    if(direccion == ASC){//Ordenacion ascendente
+
+        for(i = 0; i < lista->getN(); i++)
+            temp.setValor(lista->getValor(i),temp.getValor(lista->getValor(i)) + 1);
+        for(i = 0,j = 0;i < RANGO && j < lista->getN(); i++)
+            for(k = 0; k < temp.getValor(i) && j < lista->getN();k++)
+                lista->setValor(j++,i);
+
+    }else if(direccion == DESC){//Ordenacion descendente
+
+        for(i = 0; i < lista->getN(); i++)
+            temp.setValor(lista->getValor(i),temp.getValor(lista->getValor(i)) + 1); // generar el array de rangos
+        for(i = RANGO - 1,j = 0;i >= 0 && j < lista->getN(); i--)// Modificar la lista entorno al array de rangos
+            for(k = 0; k < temp.getValor(i) && j < lista->getN();k++)
+                lista->setValor(j++,i);
+
+    }
+}
+
+
+
+
+

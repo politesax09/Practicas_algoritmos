@@ -31,14 +31,14 @@ public:
 	ListaContigua();
 
 	// Constructor por copia.
-	ListaContigua(ListaContigua &lista);
+	ListaContigua(const ListaContigua &lista);
 
 	// Devuelve un elemento de la ListaContigua
 	// Parámetro: la posición del elemento
 	// Retorno: el elemento encontrado en esa posición
 	// Precondiciones: posicion en [0, n-1]
 	// Complejidad temporal y espacial: O(1)
-	int getValor(int posicion);
+	int getValor(int posicion) const;
 
 	// Modifica un elemento de la ListaContigua
 	// Parámetros:
@@ -47,19 +47,19 @@ public:
 	// Precondiciones:
 	// - posicion en [0, n-1]
 	// Complejidad temporal y espacial: O(1)
-	void setValor(int posicion, int nuevoValor);
+	void setValor(int posicion, int nuevoValor) const;
 
 	// Devuelve el tamaño actual de la ListaContigua
 	// Retorno: número actual de elementos de la ListaContigua
 	// Complejidad temporal y espacial: O(1)
-	int getN(); 
+	int getN() const;
 
 	// Devuelve la capacidad actual de la ListaContigua
 	// Retorno: número máximo que actualmente podría contener la ListaContigua
 	// Complejidad temporal y espacial: O(1)
-	int getCapacidad(); 
+	int getCapacidad() const;
 
-	// Inserta un nuevo elemento en la última posición de la ListaContigua, 
+	// Inserta un nuevo elemento en la última posición de la ListaContigua,
 	// ampliando previamente la capacidad si es necesario
 	// Parámetros:
 	// - nuevoValor: el nuevo elemento que queremos poner

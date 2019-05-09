@@ -22,6 +22,4 @@ public:
 	void MergeSort(ListaContigua *lista, int direccion);
 	void Rango(ListaContigua *lista, int direccion);
 
-	~Orden();
-
 };

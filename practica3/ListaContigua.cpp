@@ -14,7 +14,7 @@ ListaContigua::ListaContigua() {
 	capacidad=0;
 }
 
-ListaContigua::ListaContigua(ListaContigua &lista){
+ListaContigua::ListaContigua(const ListaContigua &lista){
 	//Reservar memoria para la capacidad de la lista
 	vector = (int*)malloc(lista.getCapacidad() * sizeof(int));
 	//Copiar los elementos
@@ -25,21 +25,21 @@ ListaContigua::ListaContigua(ListaContigua &lista){
 	capacidad = lista.getCapacidad();
 }
 
-int ListaContigua::getValor(int posicion) {
+int ListaContigua::getValor(int posicion) const{
 	assert(posicion >= 0 && posicion <= n-1);
 	return (vector[posicion]);
 }
 
-void ListaContigua::setValor(int posicion, int nuevoValor) {
+void ListaContigua::setValor(int posicion, int nuevoValor) const{
 	assert(posicion >= 0 && posicion <= n-1);
 	vector[posicion] = nuevoValor;
 }
 
-int ListaContigua::getN() {
+int ListaContigua::getN() const{
 	return (n);
 }
 
-int ListaContigua::getCapacidad() {
+int ListaContigua::getCapacidad() const{
 	return (capacidad);
 }
 
@@ -86,15 +86,15 @@ void ListaContigua::eliminar(int posicion) {
 
 void ListaContigua::concatenar(ListaContigua *listaAConcatenar) {
 	assert(listaAConcatenar != NULL);
-	
+
 	// Tamaño de la lista a concatenar. Por convención, cuando tenemos
 	// dos listas, el tamaño de una es "n" y el de la otra es "m"
-	int m = listaAConcatenar->getN(); 
-	
+	int m = listaAConcatenar->getN();
+
 	// Primero vamos a ampliar la capacidad para asegurarnos de que los
-	// nuevos elementos quepan. Para curarnos en salud, ampliamos la 
+	// nuevos elementos quepan. Para curarnos en salud, ampliamos la
 	// capacidad en el tamaño de la listaAConcatenar
-	// Complejidad temporal O(n) 
+	// Complejidad temporal O(n)
 	// Complejidad espacial O(m+n)
 	vector = (int*)realloc(vector, sizeof(int)*(capacidad + m));
 	capacidad += m;
