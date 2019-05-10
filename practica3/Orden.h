@@ -10,7 +10,7 @@ public:
 
 	bool esOrdenada(ListaContigua *lista, int direccion);
 
-	ListaContigua QSort(ListaContigua &lista, int ini, int fin);
+	ListaContigua QSort(ListaContigua *lista, int ini, int fin);
 	ListaContigua merge(ListaContigua &lista, int l_ini, int l_fin, int r_ini, int r_fin);
 	ListaContigua dividir(ListaContigua &lista, int ini, int fin);
 
@@ -22,6 +22,4 @@ public:
 	void MergeSort(ListaContigua *lista, int direccion);
 	void Rango(ListaContigua *lista, int direccion);
 
-	~Orden();
-	
 };
