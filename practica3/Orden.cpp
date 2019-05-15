@@ -26,119 +26,186 @@ bool Orden::esOrdenada(ListaContigua *lista, int direccion){
 }
 
 void Orden::Insercion(ListaContigua *lista, int direccion){
-	int temp = 0, i, j, k;
+	int temp = 0, i, j, k,temp2;
 
-	for (i = 0; i < lista->getN(); ++i)
-	{
-		temp = lista->getValor(i);
-
-		for (j = i - 1, k = i - 1; j >= 0; --j)
-		{
-			if (lista->getValor(i) < lista->getValor(j))
-			{
-				for (; k - 1 > j; --k)
-					lista->setValor(k, lista->getValor(k - 1));
-				lista->setValor(j, temp);
-			}
-		}
-	}
+	if(direccion == ASC)
+        for (i = 0; i < lista->getN(); ++i)
+        {
+            temp = lista->getValor(i);
+            for (j = i - 1, k = 0; j >= 0 && temp < lista->getValor(j) ; --j, ++k)
+            {
+                temp2 = lista->getValor(i - k);
+                lista->setValor(i - k,lista->getValor(j));
+                lista->setValor(j,temp2);
+            }
+        }
+    else
+        for (i = 0; i < lista->getN(); ++i)
+        {
+            temp = lista->getValor(i);
+            for (j = i - 1, k = 0; j >= 0 && temp > lista->getValor(j) ; --j, ++k)
+            {
+                temp2 = lista->getValor(i - k);
+                lista->setValor(i - k,lista->getValor(j));
+                lista->setValor(j,temp2);
+            }
+        }
 }
 
 void Orden::Seleccion(ListaContigua *lista, int direccion){
-	int i, j, menor, posMenor;
-	for (i = 0; i < lista->getN(); ++i)
-	{
-		menor = lista->getValor(i);
-		posMenor = 0;
+	int i, j, interes, posInteres;
 
-		//Buscar el menor elemento de la semi-lista y guaradarlo junto a su posicion
-		for (j = i; j < lista->getN(); ++j)
-		{
-			if (lista->getValor(j) < menor)
-			{
-				menor = lista->getValor(j);
-				posMenor = j;
-			}
-		}
+    if(direccion == ASC){
+        for (i = 0; i < lista->getN(); ++i)
+        {
+            interes = lista->getValor(i);
+            posInteres = 0;
 
-		//Intercambiar el elemento "i" con el "j"
-		//Si posMenor == 0, significa que el "i" es el menor elemento en ese momento
-		if (posMenor != 0)
-		{
-			lista->setValor(posMenor, lista->getValor(i));
-			lista->setValor(i, menor);
-		}
+            //Buscar el menor elemento de la semi-lista y guaradarlo junto a su posicion
+            for (j = i; j < lista->getN(); ++j)
+            {
+                if (lista->getValor(j) < interes)
+                {
+                    interes = lista->getValor(j);
+                    posInteres = j;
+                }
+            }
 
+            //Intercambiar el elemento "i" con el "j"
+            //Si posMenor == 0, significa que el "i" es el menor elemento en ese momento
+            if (posInteres != 0)
+            {
+                lista->setValor(posInteres, lista->getValor(i));
+                lista->setValor(i, interes);
+            }
+
+        }
 	}
+	else{
+              for (i = 0; i < lista->getN(); ++i)
+        {
+            interes = lista->getValor(i);
+            posInteres = 0;
+
+            //Buscar el mallor elemento de la semi-lista y guaradarlo junto a su posicion
+            for (j = i; j < lista->getN(); ++j)
+            {
+                if (lista->getValor(j) > interes)
+                {
+                    interes = lista->getValor(j);
+                    posInteres = j;
+                }
+            }
+
+            //Intercambiar el elemento "i" con el "j"
+            //Si posInteres == 0, significa que el "i" es el mallor elemento en ese momento
+            if (posInteres != 0)
+            {
+                lista->setValor(posInteres, lista->getValor(i));
+                lista->setValor(i, interes);
+            }
+
+        }
+	}
+
 }
 
 void Orden::Burbuja(ListaContigua *lista, int direccion){
-	int temp = 0;
+	int temp = 0, i, j;
 
-	for (int i = 2; i <= lista->getN(); ++i)
-	{
-		for (int j = 0; j < lista->getN() - i; ++j)
-		{
-			if (lista->getValor(j) > lista->getValor(j + 1))
-			{
-				temp = lista->getValor(j);
-				lista->setValor(j, lista->getValor(j + 1));
-				lista->setValor(j + 1, temp);
-			}
-		}
-	}
+    for(i = 0; i < lista->getN();i++)
+        cout << lista->getValor(i) << " ";
+    cout << endl;
+    if(direccion == ASC)
+        for ( i = 1; i <= lista->getN(); ++i)
+        {
+            for ( j = 0; j < lista->getN() - i; ++j)
+            {
+                if (lista->getValor(j) > lista->getValor(j + 1))
+                {
+                    temp = lista->getValor(j);
+                    lista->setValor(j, lista->getValor(j + 1));
+                    lista->setValor(j + 1, temp);
+                }
+            }
+        }
+	else
+        for ( i = 1; i <= lista->getN(); ++i)
+        {
+            for ( j = 0; j < lista->getN() - i; ++j)
+            {
+                if (lista->getValor(j) < lista->getValor(j + 1))
+                {
+                    temp = lista->getValor(j);
+                    lista->setValor(j, lista->getValor(j + 1));
+                    lista->setValor(j + 1, temp);
+                }
+            }
+        }
+
+    for(i = 0; i < lista->getN();i++)
+        cout << lista->getValor(i) << " ";
+    cout << endl;
+
 }
 
-ListaContigua Orden::QSort(ListaContigua *lista, int ini, int fin){
-	int med = 0, pivote = 0, temp = 0, igual = 0, i, j;
+void Orden::QSortASC(ListaContigua *copia, int ini, int fin){
+  int i = ini, j = fin;
+  int tmp;
+  int pivot = copia->getValor((ini + fin) / 2);
 
-	ListaContigua copia(*lista);
+  /* partition */
+  while (i <= j) {
+        while (copia->getValor(i) < pivot)
+              i++;
+        while (copia->getValor(j) > pivot)
+              j--;
+        if (i <= j) {
+              tmp = copia->getValor(i);
+              copia->setValor(i,copia->getValor(j));
+              copia->setValor(j,tmp);
+              i++;
+              j--;
+        }
+    }
+    /* recursion */
+    if (ini < j)
+        QSortASC(copia, ini, j);
+    if (i < fin)
+        QSortASC(copia, i, fin);
+}
 
-	//Localizar la mitad de la lista y asignar el pivote
-	med = copia.getN() / 2;
-	pivote = copia.getValor(med);	//PROVISIONAL
+void Orden::QSortDESC(ListaContigua *copia, int ini, int fin){
+  int i = ini, j = fin;
+  int tmp;
+  int pivot = copia->getValor((ini + fin) / 2);
 
-	i = 0;
-	j = copia.getN() - 1;
-	while (i < j)
-	{
-		//Recorrer la copia hasta que un elemento este en el lado que no le corresponde
-		for (; copia.getValor(i) < pivote; ++i);
-        for (; copia.getValor(j) > pivote; --j);
-        //"igual" es un contador de elementos iguales que "pivote", se anaden al final
-        for (; copia.getValor(i) == pivote || copia.getValor(i) == pivote; ++i, --j)
-            igual++;
-
-		//Los que no estan en el lado correcto, se intercambian si los indices no se han cruzado
-		if (i < j)
-		{
-			temp = copia.getValor(j);
-			copia.setValor(j, copia.getValor(i));
-			copia.setValor(i, temp);
-		}
-	}
-
-	//Llamadas recursivas a las semicopias
-	if (fin - ini != 1)		//Condicion de parada: cuando quede solo 1 elemento
-	{
-		QSort(&copia, ini, med);
-		QSort(&copia, med + 1, fin);
-	}
-
-	return copia;
+  /* partition */
+  while (i <= j) {
+        while (copia->getValor(i) > pivot)
+              i++;
+        while (copia->getValor(j) < pivot)
+              j--;
+        if (i <= j) {
+              tmp = copia->getValor(i);
+              copia->setValor(i,copia->getValor(j));
+              copia->setValor(j,tmp);
+              i++;
+              j--;
+        }
+    }
+    /* recursion */
+    if (ini < j)
+        QSortDESC(copia, ini, j);
+    if (i < fin)
+        QSortDESC(copia, i, fin);
 }
 
 void Orden::QuickSort(ListaContigua *lista, int direccion){
-    cout << "flag\n";
-    for(int i = 0; i < lista->getN(); i++)
-        cout << lista->getValor(i) << " ";
-    cout << "\nflag2\n";
-	ListaContigua ordenada(QSort(lista,0,lista->getN()));
-
-
-	//Copiar la lista ordenada a la lista pasada por parametro
-	for (int i = 0; i < ordenada.getN(); ++i)
-		lista->setValor(i, ordenada.getValor(i));
+    if (direccion == DESC)
+        QSortDESC(lista,0,lista->getN() - 1);
+    else
+        QSortASC(lista,0,lista->getN() - 1);
 }
 
 // void merge(int *left, int l_len, int *right, int r_len, int *out)
