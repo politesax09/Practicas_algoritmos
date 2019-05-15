@@ -14,8 +14,9 @@ public:
 	bool esOrdenada(ListaContigua *lista, int direccion);
 
 
-	ListaContigua merge(ListaContigua &lista, int l_ini, int l_fin, int r_ini, int r_fin);
-	ListaContigua dividir(ListaContigua &lista, int ini, int fin);
+	void mergeASC(ListaContigua *lista, int l, int m, int r);
+	void mergeDESC(ListaContigua *lista, int l, int m, int r);
+	void dividir(ListaContigua *lista, int ini, int fin, bool descendente);
 
 	//Metodos de ordenacion
 	void Insercion(ListaContigua *lista, int direccion);

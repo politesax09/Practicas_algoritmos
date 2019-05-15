@@ -113,9 +113,6 @@ void Orden::Seleccion(ListaContigua *lista, int direccion){
 void Orden::Burbuja(ListaContigua *lista, int direccion){
 	int temp = 0, i, j;
 
-    for(i = 0; i < lista->getN();i++)
-        cout << lista->getValor(i) << " ";
-    cout << endl;
     if(direccion == ASC)
         for ( i = 1; i <= lista->getN(); ++i)
         {
@@ -142,11 +139,6 @@ void Orden::Burbuja(ListaContigua *lista, int direccion){
                 }
             }
         }
-
-    for(i = 0; i < lista->getN();i++)
-        cout << lista->getValor(i) << " ";
-    cout << endl;
-
 }
 
 void Orden::QSortASC(ListaContigua *copia, int ini, int fin){
@@ -240,42 +232,138 @@ void Orden::QuickSort(ListaContigua *lista, int direccion){
 // 	free(tmp);
 // }
 
-ListaContigua Orden::merge(ListaContigua &lista, int l_ini, int l_fin, int r_ini, int r_fin){
-	int i, j, k;
-	ListaContigua salida(lista);
-	for (i = l_ini, j = r_ini, k = 0; i <= l_fin && j <= r_fin; ++i)
-	{
-		if (lista.getValor(i) < lista.getValor(j))
-			salida.setValor(k++, lista.getValor(i++));
-		else salida.setValor(k++, lista.getValor(j++));
-	}
+void Orden::mergeASC(ListaContigua *lista, int l, int m, int r){
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
 
-	while (i <= l_fin) salida.setValor(k++, lista.getValor(i++));
-	while (j <= r_fin) salida.setValor(k++, lista.getValor(j++));
+    /* create temp arrays */
+    int L[n1], R[n2];
 
-	return salida;
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = lista->getValor(l + i);
+    for (j = 0; j < n2; j++)
+        R[j] = lista->getValor(m + 1 + j);
+
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            lista->setValor(k,L[i]);
+            i++;
+        }
+        else
+        {
+            lista->setValor(k,R[j]);
+            j++;
+        }
+        k++;
+    }
+
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        lista->setValor(k,L[i]);
+        i++;
+        k++;
+    }
+
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        lista->setValor(k,R[j]);
+        j++;
+        k++;
+    }
 }
 
-ListaContigua Orden::dividir(ListaContigua &lista, int ini, int fin){
-	int len = fin - ini, med = len / 2 - 1, l_ini = 0, r_ini = med + 1, l_fin = med, r_fin = len - 1;
-	ListaContigua salida(lista);
-	if (fin - ini <= 1)
-	{
-		salida.setValor(ini, lista.getValor(ini));	//REPLANTEAR CASO BASE Y DIVIDIR
-		return salida;
-	}
+void Orden::mergeDESC(ListaContigua *lista, int l, int m, int r){
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
 
-	dividir(lista, l_ini, l_fin);
-	dividir(lista, r_ini, r_fin);
+    /* create temp arrays */
+    int L[n1], R[n2];
 
-	return merge(lista, l_ini, l_fin, r_ini, r_fin);
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = lista->getValor(l + i);
+    for (j = 0; j < n2; j++)
+        R[j] = lista->getValor(m + 1 + j);
+
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] >= R[j])
+        {
+            lista->setValor(k,L[i]);
+            i++;
+        }
+        else
+        {
+            lista->setValor(k,R[j]);
+            j++;
+        }
+        k++;
+    }
+
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        lista->setValor(k,L[i]);
+        i++;
+        k++;
+    }
+
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        lista->setValor(k,R[j]);
+        j++;
+        k++;
+    }
+}
+
+void Orden::dividir(ListaContigua *lista, int ini, int fin,bool descendente){
+    if (ini < fin)
+    {
+        // Same as (l+r)/2, but avoids overflow for
+        // large l and h
+        int m = ini+(fin-ini)/2;
+
+        // Sort first and second halves
+        dividir(lista, ini, m, descendente);
+        dividir(lista, m+1, fin, descendente);
+        if (descendente)
+            mergeDESC(lista, ini, m, fin);
+        else
+            mergeASC(lista, ini, m, fin);
+    }
 }
 
 void Orden::MergeSort(ListaContigua *lista, int direccion){
-	ListaContigua salida(*lista);
+    for(int i = 0; i < lista->getN();i++)
+        cout << lista->getValor(i) << " ";
+    cout << endl;
 
-	salida = dividir(*lista, 0, lista->getN() - 1);
+    dividir(lista,0,lista->getN() - 1,direccion);
 	//COPIAR SALIDA A LISTA
+
+    for(int i = 0; i < lista->getN();i++)
+        cout << lista->getValor(i) << " ";
+    cout << endl;
 }
 
 void Orden::Rango(ListaContigua* lista, int direccion){

@@ -154,7 +154,7 @@ int main(int argc, char const *argv[])
     //Caso general
     clicksInicio = clock();
     cout << "Clocks de inicio con ordenacion por MergeSort: " << clicksInicio << endl;
-	//oblig.MergeSort(&listaMSort, ASC);
+	oblig.MergeSort(&listaMSort, ASC);
     clicksFin = clock();
     cout << "Clocks de fin con ordenacion por MergeSort:    " << clicksFin << endl;
 
@@ -164,7 +164,7 @@ int main(int argc, char const *argv[])
     //Mejor caso
     clicksInicio = clock();
     cout << "Clocks de inicio con ordenacion por MergeSort: " << clicksInicio << endl;
-	//oblig.MergeSort(&listaMSort, ASC);
+	oblig.MergeSort(&listaMSort, ASC);
     clicksFin = clock();
     cout << "Clocks de fin con ordenacion por MergeSort:    " << clicksFin << endl;
 
@@ -174,7 +174,7 @@ int main(int argc, char const *argv[])
     //Peor caso
     clicksInicio = clock();
     cout << "Clocks de inicio con ordenacion por MergeSort: " << clicksInicio << endl;
-	//oblig.MergeSort(&listaMSort, DESC);
+	oblig.MergeSort(&listaMSort, DESC);
     clicksFin = clock();
     cout << "Clocks de fin con ordenacion por MergeSort:    " << clicksFin << endl;
 
