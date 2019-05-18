@@ -27,6 +27,8 @@ void Arbol::insertar(int valor){
         raiz->izquierda = nullptr;
     }else{
         hueco = this->encuentraHueco(valor,this->raiz);
+        if(hueco == nullptr) return;
+
         if(valor < hueco->elemento){
             hueco->izquierda = (Node *) malloc(sizeof(Node));
             hueco->izquierda->elemento = valor;
@@ -39,26 +41,45 @@ void Arbol::insertar(int valor){
             hueco->derecha->izquierda = nullptr;
         }
     }
+    this->numeroDeNodos++;
 }
 
 Node* Arbol::encuentraHueco(int valor, Node* root){
     if(root->elemento > valor){
         if(root->izquierda == nullptr) return root;
         return encuentraHueco(valor,root->izquierda);
-    }else{
+    }else if(root->elemento < valor) {
         if(root->derecha == nullptr) return root;
         return encuentraHueco(valor,root->derecha);
     }
-
+    return nullptr;
 }
 
-void Arbol::mostrarOrden(){
-    this->mostrarOrdenR(this->raiz);
+int Arbol::getNumNod(){
+    return this->numeroDeNodos;
 }
 
-void Arbol::mostrarOrdenR(Node* root){
+void Arbol::mostrar(int orden){
+    cout << endl; // para mejorar la estetica
+    this->mostrarR(this->raiz, orden);
+    cout << endl; // para mejorar la estetica
+}
+
+void Arbol::mostrarR(Node* root,int orden){
     if(root == nullptr) return;
-    mostrarOrdenR(root->izquierda);
-    cout << root->elemento << " " ;
-    mostrarOrdenR(root->derecha);
+    if(orden == INORDER){
+        mostrarR(root->izquierda,orden);
+        cout << root->elemento << " " ;
+        mostrarR(root->derecha,orden);
+        }
+    if(orden == PREORDER){
+        cout << root->elemento << " " ;
+        mostrarR(root->izquierda,orden);
+        mostrarR(root->derecha,orden);
+    }
+    if(orden == POSTORDER){
+        mostrarR(root->izquierda,orden);
+        mostrarR(root->derecha,orden);
+        cout << root->elemento << " " ;
+    }
 }

@@ -4,6 +4,10 @@
 #include <iostream>
 #include <stdlib.h>
 
+#define INORDER 0
+#define PREORDER 1
+#define POSTORDER 2
+
 typedef struct nodo{
     int elemento;
     struct nodo * derecha;
@@ -17,10 +21,11 @@ class Arbol{
 
         void removeN(Node* root);
         Node* encuentraHueco(int valor, Node* root);
-        void mostrarOrdenR(Node* root);
+        void mostrarR(Node* root,int orden);
 
     public:
-        void mostrarOrden();
+        void mostrar(int orden);
+        int getNumNod();
         void insertar(int valor);
         Arbol();
         ~Arbol();
