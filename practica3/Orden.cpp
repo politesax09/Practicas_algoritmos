@@ -5,140 +5,201 @@
 #include <iostream>
 
 using namespace std;
+
 Orden::Orden(){}
+
 bool Orden::esOrdenada(ListaContigua *lista, int direccion){
-	int i = 0;
+	int i = 1;
 
 	if (direccion == ASC)
 	{
 		while (lista->getValor(i - 1) < lista->getValor(i) && i < lista->getN())
-		if (i == lista->getN() - 1)
-			return true;
+    		if (i == lista->getN() - 1)
+                return true;
 		return false;
 	}
 	else
 	{
 		while (lista->getValor(i - 1) > lista->getValor(i) && i < lista->getN())
-		if (i == lista->getN() - 1)
-			return true;
+    		if (i == lista->getN() - 1)
+    			return true;
 		return false;
 	}
 }
 
 void Orden::Insercion(ListaContigua *lista, int direccion){
-	int temp = 0, i, j, k;
+	int temp = 0, i, j, k,temp2;
 
-	for (i = 0; i < lista->getN(); ++i)
-	{
-		temp = lista->getValor(i);
-
-		for (j = i - 1, k = i - 1; j >= 0; --j)
-		{
-			if (lista->getValor(i) < lista->getValor(j))
-			{
-				for (; k - 1 > j; --k)
-					lista->setValor(k, lista->getValor(k - 1));
-				lista->setValor(j, temp);
-			}
-		}
-	}
+	if(direccion == ASC)
+        for (i = 0; i < lista->getN(); ++i)
+        {
+            temp = lista->getValor(i);
+            for (j = i - 1, k = 0; j >= 0 && temp < lista->getValor(j) ; --j, ++k)
+            {
+                temp2 = lista->getValor(i - k);
+                lista->setValor(i - k,lista->getValor(j));
+                lista->setValor(j,temp2);
+            }
+        }
+    else
+        for (i = 0; i < lista->getN(); ++i)
+        {
+            temp = lista->getValor(i);
+            for (j = i - 1, k = 0; j >= 0 && temp > lista->getValor(j) ; --j, ++k)
+            {
+                temp2 = lista->getValor(i - k);
+                lista->setValor(i - k,lista->getValor(j));
+                lista->setValor(j,temp2);
+            }
+        }
 }
 
 void Orden::Seleccion(ListaContigua *lista, int direccion){
-	int i, j, menor, posMenor;
-	for (i = 0; i < lista->getN(); ++i)
-	{
-		menor = lista->getValor(i);
-		posMenor = 0;
+	int i, j, interes, posInteres;
 
-		//Buscar el menor elemento de la semi-lista y guaradarlo junto a su posicion
-		for (j = i; j < lista->getN(); ++j)
-		{
-			if (lista->getValor(j) < menor)
-			{
-				menor = lista->getValor(j);
-				posMenor = j;
-			}
-		}
+    if(direccion == ASC){
+        for (i = 0; i < lista->getN(); ++i)
+        {
+            interes = lista->getValor(i);
+            posInteres = 0;
 
-		//Intercambiar el elemento "i" con el "j"
-		//Si posMenor == 0, significa que el "i" es el menor elemento en ese momento
-		if (posMenor != 0)
-		{
-			lista->setValor(posMenor, lista->getValor(i));
-			lista->setValor(i, menor);
-		}
+            //Buscar el menor elemento de la semi-lista y guaradarlo junto a su posicion
+            for (j = i; j < lista->getN(); ++j)
+            {
+                if (lista->getValor(j) < interes)
+                {
+                    interes = lista->getValor(j);
+                    posInteres = j;
+                }
+            }
 
+            //Intercambiar el elemento "i" con el "j"
+            //Si posMenor == 0, significa que el "i" es el menor elemento en ese momento
+            if (posInteres != 0)
+            {
+                lista->setValor(posInteres, lista->getValor(i));
+                lista->setValor(i, interes);
+            }
+
+        }
 	}
+	else{
+              for (i = 0; i < lista->getN(); ++i)
+        {
+            interes = lista->getValor(i);
+            posInteres = 0;
+
+            //Buscar el mallor elemento de la semi-lista y guaradarlo junto a su posicion
+            for (j = i; j < lista->getN(); ++j)
+            {
+                if (lista->getValor(j) > interes)
+                {
+                    interes = lista->getValor(j);
+                    posInteres = j;
+                }
+            }
+
+            //Intercambiar el elemento "i" con el "j"
+            //Si posInteres == 0, significa que el "i" es el mallor elemento en ese momento
+            if (posInteres != 0)
+            {
+                lista->setValor(posInteres, lista->getValor(i));
+                lista->setValor(i, interes);
+            }
+
+        }
+	}
+
 }
 
 void Orden::Burbuja(ListaContigua *lista, int direccion){
-	int temp = 0;
+	int temp = 0, i, j;
 
-	for (int i = 2; i <= lista->getN(); ++i)
-	{
-		for (int j = 0; j < lista->getN() - i; ++j)
-		{
-			if (lista->getValor(j) > lista->getValor(j + 1))
-			{
-				temp = lista->getValor(j);
-				lista->setValor(j, lista->getValor(j + 1));
-				lista->setValor(j + 1, temp);
-			}
-		}
-	}
+    if(direccion == ASC)
+        for ( i = 1; i <= lista->getN(); ++i)
+        {
+            for ( j = 0; j < lista->getN() - i; ++j)
+            {
+                if (lista->getValor(j) > lista->getValor(j + 1))
+                {
+                    temp = lista->getValor(j);
+                    lista->setValor(j, lista->getValor(j + 1));
+                    lista->setValor(j + 1, temp);
+                }
+            }
+        }
+	else
+        for ( i = 1; i <= lista->getN(); ++i)
+        {
+            for ( j = 0; j < lista->getN() - i; ++j)
+            {
+                if (lista->getValor(j) < lista->getValor(j + 1))
+                {
+                    temp = lista->getValor(j);
+                    lista->setValor(j, lista->getValor(j + 1));
+                    lista->setValor(j + 1, temp);
+                }
+            }
+        }
 }
 
-ListaContigua Orden::QSort(ListaContigua *lista, int ini, int fin){
-	int med = 0, pivote = 0, temp = 0, igual = 0, i, j;
+void Orden::QSortASC(ListaContigua *copia, int ini, int fin){
+  int i = ini, j = fin;
+  int tmp;
+  int pivot = copia->getValor((ini + fin) / 2);
 
-	ListaContigua copia(*lista);
+  /* partition */
+  while (i <= j) {
+        while (copia->getValor(i) < pivot)
+              i++;
+        while (copia->getValor(j) > pivot)
+              j--;
+        if (i <= j) {
+              tmp = copia->getValor(i);
+              copia->setValor(i,copia->getValor(j));
+              copia->setValor(j,tmp);
+              i++;
+              j--;
+        }
+    }
+    /* recursion */
+    if (ini < j)
+        QSortASC(copia, ini, j);
+    if (i < fin)
+        QSortASC(copia, i, fin);
+}
 
-	//Localizar la mitad de la lista y asignar el pivote
-	med = fin / 2;
-	pivote = copia.getValor(med);	//PROVISIONAL
+void Orden::QSortDESC(ListaContigua *copia, int ini, int fin){
+  int i = ini, j = fin;
+  int tmp;
+  int pivot = copia->getValor((ini + fin) / 2);
 
-	i = 0;
-	j = copia.getN() - 1;
-	while (i < j)
-	{
-		//Recorrer la copia hasta que un elemento este en el lado que no le corresponde
-		for (; copia.getValor(i) < pivote; ++i);
-        for (; copia.getValor(j) > pivote; --j);
-        //"igual" es un contador de elementos iguales que "pivote", se anaden al final
-        for (; copia.getValor(i) == pivote || copia.getValor(j) == pivote; ++i, --j)
-            igual++;
-
-		//Los que no estan en el lado correcto, se intercambian si los indices no se han cruzado
-		if (i < j)
-		{
-			temp = copia.getValor(j);
-			copia.setValor(j, copia.getValor(i));
-			copia.setValor(i, temp);
-		}
-	}
-
-	//Llamadas recursivas a las semicopias
-	if (fin - ini != 1)		//Condicion de parada: cuando quede solo 1 elemento
-	{
-		QSort(&copia, ini, med);
-		QSort(&copia, med + 1, fin);
-	}
-
-	return copia;
+  /* partition */
+  while (i <= j) {
+        while (copia->getValor(i) > pivot)
+              i++;
+        while (copia->getValor(j) < pivot)
+              j--;
+        if (i <= j) {
+              tmp = copia->getValor(i);
+              copia->setValor(i,copia->getValor(j));
+              copia->setValor(j,tmp);
+              i++;
+              j--;
+        }
+    }
+    /* recursion */
+    if (ini < j)
+        QSortDESC(copia, ini, j);
+    if (i < fin)
+        QSortDESC(copia, i, fin);
 }
 
 void Orden::QuickSort(ListaContigua *lista, int direccion){
-    cout << "flag\n";
-    for(int i = 0; i < lista->getN(); i++)
-        cout << lista->getValor(i) << " ";
-    cout << "\nflag2\n";
-	ListaContigua ordenada(QSort(lista,0,lista->getN()));
-
-
-	//Copiar la lista ordenada a la lista pasada por parametro
-	for (int i = 0; i < ordenada.getN(); ++i)
-		lista->setValor(i, ordenada.getValor(i));
+    if (direccion == DESC)
+        QSortDESC(lista,0,lista->getN() - 1);
+    else
+        QSortASC(lista,0,lista->getN() - 1);
 }
 
 // void merge(int *left, int l_len, int *right, int r_len, int *out)
@@ -173,54 +234,129 @@ void Orden::QuickSort(ListaContigua *lista, int direccion){
 // 	free(tmp);
 // }
 
-ListaContigua Orden::merge(ListaContigua &lista, int l_ini, int l_fin, int r_ini, int r_fin){
-	int i, j, k;
-	ListaContigua salida(lista);
-	for (i = l_ini, j = r_ini, k = 0; i <= l_fin && j <= r_fin; ++i)
-	{
-		if (lista.getValor(i) < lista.getValor(j))
-			salida.setValor(k++, lista.getValor(i++));
-		else salida.setValor(k++, lista.getValor(j++));
-	}
+void Orden::mergeASC(ListaContigua *lista, int l, int m, int r){
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
 
-	while (i <= l_fin) salida.setValor(k++, lista.getValor(i++));
-	while (j <= r_fin) salida.setValor(k++, lista.getValor(j++));
+    /* create temp arrays */
+    int L[n1], R[n2];
 
-	return salida;
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = lista->getValor(l + i);
+    for (j = 0; j < n2; j++)
+        R[j] = lista->getValor(m + 1 + j);
+
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            lista->setValor(k,L[i]);
+            i++;
+        }
+        else
+        {
+            lista->setValor(k,R[j]);
+            j++;
+        }
+        k++;
+    }
+
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        lista->setValor(k,L[i]);
+        i++;
+        k++;
+    }
+
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        lista->setValor(k,R[j]);
+        j++;
+        k++;
+    }
 }
 
-ListaContigua Orden::dividir(ListaContigua &lista, int ini, int fin){
-	cout << "fin=" << fin << endl;
-	if (fin < 0)
-	{
-		printf("MAL\n");
-	}
-	ListaContigua salida(lista);
-	// static int cont = 0;	//Indica la posicion de la lista resultado donde se tiene que insertar el valor del caso base ([veces que se ha ejecutado caso base] - 1)
-	int len = fin - ini + 1, med = len / 2 + ini, l_ini = 0, r_ini = med, l_fin = med - 1, r_fin = len - 1 + ini;//BIEN
-	
-	if (fin - ini <= 1)
-	{
-		salida.setValor(ini, lista.getValor(ini));	//REPLANTEAR CASO BASE Y DIVIDIR
-		return salida;
-	}
+void Orden::mergeDESC(ListaContigua *lista, int l, int m, int r){
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 =  r - m;
 
-	salida = dividir(lista, l_ini, l_fin);
-	salida = dividir(lista, r_ini, r_fin);
+    /* create temp arrays */
+    int L[n1], R[n2];
 
-	return merge(salida, l_ini, l_fin, r_ini, r_fin);
+    /* Copy data to temp arrays L[] and R[] */
+    for (i = 0; i < n1; i++)
+        L[i] = lista->getValor(l + i);
+    for (j = 0; j < n2; j++)
+        R[j] = lista->getValor(m + 1 + j);
+
+    /* Merge the temp arrays back into arr[l..r]*/
+    i = 0; // Initial index of first subarray
+    j = 0; // Initial index of second subarray
+    k = l; // Initial index of merged subarray
+    while (i < n1 && j < n2)
+    {
+        if (L[i] >= R[j])
+        {
+            lista->setValor(k,L[i]);
+            i++;
+        }
+        else
+        {
+            lista->setValor(k,R[j]);
+            j++;
+        }
+        k++;
+    }
+
+    /* Copy the remaining elements of L[], if there
+       are any */
+    while (i < n1)
+    {
+        lista->setValor(k,L[i]);
+        i++;
+        k++;
+    }
+
+    /* Copy the remaining elements of R[], if there
+       are any */
+    while (j < n2)
+    {
+        lista->setValor(k,R[j]);
+        j++;
+        k++;
+    }
+}
+
+void Orden::dividir(ListaContigua *lista, int ini, int fin,bool descendente){
+    if (ini < fin)
+    {
+        // Same as (l+r)/2, but avoids overflow for
+        // large l and h
+        int m = ini+(fin-ini)/2;
+
+        // Sort first and second halves
+        dividir(lista, ini, m, descendente);
+        dividir(lista, m+1, fin, descendente);
+        if (descendente)
+            mergeDESC(lista, ini, m, fin);
+        else
+            mergeASC(lista, ini, m, fin);
+    }
 }
 
 void Orden::MergeSort(ListaContigua *lista, int direccion){
-	ListaContigua salida(*lista);
-    cout << lista->getN() << endl;
-    cout << salida.getN() << endl;
-
-	salida = dividir(*lista, 0, lista->getN() - 1);
-
-	//Copiar "salida" a "lista"
-	for (int i = 0; i < salida.getN(); ++i)
-		lista->setValor(i, salida.getValor(i));
+    dividir(lista,0,lista->getN() - 1,direccion);
 }
 
 void Orden::Rango(ListaContigua* lista, int direccion){
