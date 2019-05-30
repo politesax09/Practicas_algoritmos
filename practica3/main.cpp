@@ -23,6 +23,8 @@ int main(int argc, char const *argv[])
     //Utilizar el constructor de copia a partir de la primera lista inicializada
     ListaContigua listaSeleccion(listaInsercion), listaBurbuja(listaInsercion), listaQSort(listaInsercion), listaMSort(listaInsercion), listaRango(listaInsercion);
 
+
+
     // Medicion del algoritmo de ordenacion por Insercion
     unsigned long int clicksInicio = clock();
     cout << "Clocks de inicio con ordenacion por Insercion: " << clicksInicio << endl;

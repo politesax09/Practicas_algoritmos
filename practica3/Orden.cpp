@@ -7,13 +7,13 @@
 using namespace std;
 Orden::Orden(){}
 bool Orden::esOrdenada(ListaContigua *lista, int direccion){
-	int i = 0;
+	int i = 1;
 
 	if (direccion == ASC)
 	{
 		while (lista->getValor(i - 1) < lista->getValor(i) && i < lista->getN())
-		if (i == lista->getN() - 1)
-			return true;
+            if (i == lista->getN() - 1)
+                return true;
 		return false;
 	}
 	else
