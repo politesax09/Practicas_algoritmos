@@ -1,36 +1,39 @@
 #include "Orden.h"
 #include "cstdlib"
-
-#define RANGO 200
 #include <iostream>
 
-using namespace std;
+#define RANGO 200
 
+using namespace std;
 Orden::Orden(){}
 
 bool Orden::esOrdenada(ListaContigua *lista, int direccion){
-	int i = 1;
+ int i = 1;
 
-	if (direccion == ASC)
-	{
-		while (lista->getValor(i - 1) < lista->getValor(i) && i < lista->getN())
-    		if (i == lista->getN() - 1)
-                return true;
-		return false;
-	}
-	else
-	{
-		while (lista->getValor(i - 1) > lista->getValor(i) && i < lista->getN())
-    		if (i == lista->getN() - 1)
-    			return true;
-		return false;
-	}
+ if (direccion == ASC)
+ {
+     while (i < lista->getN() && lista->getValor(i - 1) < lista->getValor(i))
+        {
+            if (i <= lista->getN() - 2) i++;
+            else return true;
+        }
+     return false;
+ }
+ else
+ {
+     while (i < lista->getN() && lista->getValor(i - 1) > lista->getValor(i))
+     {
+            if (i <= lista->getN() - 2) i++;
+            else return true;
+        }
+     return false;
+ }
 }
 
 void Orden::Insercion(ListaContigua *lista, int direccion){
-	int temp = 0, i, j, k,temp2;
+    int temp = 0, i, j, k,temp2;
 
-	if(direccion == ASC)
+    if(direccion == ASC)
         for (i = 0; i < lista->getN(); ++i)
         {
             temp = lista->getValor(i);
@@ -55,7 +58,7 @@ void Orden::Insercion(ListaContigua *lista, int direccion){
 }
 
 void Orden::Seleccion(ListaContigua *lista, int direccion){
-	int i, j, interes, posInteres;
+    int i, j, interes, posInteres;
 
     if(direccion == ASC){
         for (i = 0; i < lista->getN(); ++i)
@@ -82,8 +85,8 @@ void Orden::Seleccion(ListaContigua *lista, int direccion){
             }
 
         }
-	}
-	else{
+    }
+    else{
               for (i = 0; i < lista->getN(); ++i)
         {
             interes = lista->getValor(i);
@@ -108,12 +111,12 @@ void Orden::Seleccion(ListaContigua *lista, int direccion){
             }
 
         }
-	}
+    }
 
 }
 
 void Orden::Burbuja(ListaContigua *lista, int direccion){
-	int temp = 0, i, j;
+    int temp = 0, i, j;
 
     if(direccion == ASC)
         for ( i = 1; i <= lista->getN(); ++i)
@@ -128,7 +131,7 @@ void Orden::Burbuja(ListaContigua *lista, int direccion){
                 }
             }
         }
-	else
+    else
         for ( i = 1; i <= lista->getN(); ++i)
         {
             for ( j = 0; j < lista->getN() - i; ++j)
@@ -204,34 +207,34 @@ void Orden::QuickSort(ListaContigua *lista, int direccion){
 
 // void merge(int *left, int l_len, int *right, int r_len, int *out)
 // {
-// 	int i, j, k;
-// 	for (i = j = k = 0; i < l_len && j < r_len; )
-// 		out[k++] = left[i] < right[j] ? left[i++] : right[j++];
+//  int i, j, k;
+//  for (i = j = k = 0; i < l_len && j < r_len; )
+//      out[k++] = left[i] < right[j] ? left[i++] : right[j++];
 
-// 	while (i < l_len) out[k++] = left[i++];
-// 	while (j < r_len) out[k++] = right[j++];
+//  while (i < l_len) out[k++] = left[i++];
+//  while (j < r_len) out[k++] = right[j++];
 // }
 
 // void recur(int *buf, int *tmp, int len)
 // {
-// 	int l = len / 2;
-// 	if (len <= 1) return;
+//  int l = len / 2;
+//  if (len <= 1) return;
 
-// 	recur(tmp, buf, l);
-// 	recur(tmp + l, buf + l, len - l);
+//  recur(tmp, buf, l);
+//  recur(tmp + l, buf + l, len - l);
 
-// 	merge(tmp, l, tmp + l, len - l, buf);
+//  merge(tmp, l, tmp + l, len - l, buf);
 // }
 
 // void merge_sort(int *buf, int len)
 // {
-// 	//BUF ES EL RESULTADO
-// 	int *tmp = malloc(sizeof(int) * len);
-// 	memcpy(tmp, buf, sizeof(int) * len);
+//  //BUF ES EL RESULTADO
+//  int *tmp = malloc(sizeof(int) * len);
+//  memcpy(tmp, buf, sizeof(int) * len);
 
-// 	recur(buf, tmp, len);
+//  recur(buf, tmp, len);
 
-// 	free(tmp);
+//  free(tmp);
 // }
 
 void Orden::mergeASC(ListaContigua *lista, int l, int m, int r){
@@ -384,8 +387,3 @@ void Orden::Rango(ListaContigua* lista, int direccion){
 
     }
 }
-
-
-
-
-
